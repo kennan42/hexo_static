@@ -7,10 +7,19 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>page | Ken of Blog</title>
+    <title>hexo部署和自动化发布 | Ken of Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="ken">
+    
+    <meta name="description" content="####hexo部署和自动化发布 这里安装hexo过程省略，参考其他文章。这里主要说下如何利用git自动化发布：
+
+安装git：sudo apt-get install git
+
+
+创建GitHub Repository ，在git上创建一个reop库，取名hexo_static
+安装插件  
+1$">
     
     
     
@@ -80,15 +89,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/10/14/page/" title="page" itemprop="url">page</a>
+      <a href="/2016/11/14/hexo自动化/" title="hexo部署和自动化发布" itemprop="url">hexo部署和自动化发布</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://139.129.18.59:4000" title="ken">ken</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-10-14T02:52:45.000Z" itemprop="datePublished">2016-10-14</time>
-    更新日期:<time datetime="2017-02-21T14:04:53.103Z" itemprop="dateModified">2017-02-21</time>
+    <time datetime="2016-11-14T03:10:06.000Z" itemprop="datePublished">2016-11-14</time>
+    更新日期:<time datetime="2017-02-27T12:20:33.200Z" itemprop="dateModified">2017-02-27</time>
     
   </p>
 </header>
@@ -100,13 +109,50 @@
 		
 		</div>
 		
-		  
+		<p>####hexo部署和自动化发布<br> 这里安装hexo过程省略，参考其他文章。这里主要说下如何利用git自动化发布：</p>
+<blockquote>
+<p>安装git：sudo apt-get install git</p>
+</blockquote>
+<ul>
+<li><strong>创建GitHub Repository</strong> ，在git上创建一个reop库，取名hexo_static</li>
+<li><p><strong>安装插件</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改配置文件</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy: </div><div class="line">  type: git </div><div class="line">  repo: git@github.com:$username/hexo_static.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意替换username为自己的git名字，注意这里如果使用https协议的git，那么每次都会要求输入账户和密码，这里使用git协议，在ssh里保存密钥，这样不用每次都输入密码</p>
+<ul>
+<li><strong>执行命令</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>generate:  生成静态文件，文件生成在pulic目录下<br>deploy: 发布到git的库hexo_static</p>
+<ul>
+<li><p><strong>实现自动化</strong> </p>
+<blockquote>
+<p>这里实现自动化思路：通过git –bare 生成一个裸库bare，裸库bare作为一个远程库remote，在裸库实现一个钩子post-receive，当本地库进行push的时候，自动运行钩子，从而更新静态文件目录A，使用nginx进行转发到静态文件目录A。</p>
+</blockquote>
+</li>
+<li><p><strong>第1步：初始化空仓库</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git init --bare ~/hexo_bare</div><div class="line">``` </div><div class="line">-   **第2步：初始化空仓库** </div><div class="line">``` </div><div class="line">$ vim ~/hexo_bare/hooks/post-receive</div><div class="line">``` </div><div class="line">``` </div><div class="line">echo &quot;start 钩子&quot;</div><div class="line">git --work-tree=/usr/local/nginx/html/myblog --git-dir=/usr/local/hexo_bare checkout -f</div><div class="line">echo &quot;end 钩子&quot;</div><div class="line">``` </div><div class="line">`这里注意钩子post-ceive后面不带.sample，同时注意赋予权限`：</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>chmod +x post-receive<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-   **第3步：将空仓库关联到主仓库**</div></pre></td></tr></table></figure></p>
+<p>$ git clone <a href="https://github.com/$username/hexo_static.git" target="_blank" rel="external">https://github.com/$username/hexo_static.git</a> ~/hexo_static<br>$ cd ~/hexo_static<br>$ git remote add live ~/hexo_bare<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这里给空库起名live ,可以在本地库hexo_static</div><div class="line">调用命令： git remote -v 查看到远程库名</div><div class="line">`注意：查看下.git/config默认的库名是否是`</div></pre></td></tr></table></figure></p>
+<p>[branch “master”]<br>        remote = origin<br>        merge = refs/heads/master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-   **第4步：创建自动化脚本**</div></pre></td></tr></table></figure></p>
+<p>$ vim ~/hexo_blog/hexo_git_deploy.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">脚本内容：</div></pre></td></tr></table></figure></p>
+<p>#!/bin/bash</p>
+<p>hexo clean<br>hexo generate<br>hexo deploy</p>
+<p>( cd ~/hexo_static ; git pull origin; git push live master)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">`注意：这里一定要git pull origin,不然无法pull成功！`</div><div class="line">-   **第5步：nginx指定静态目录**</div><div class="line">      在nginx的配置文件中配置即可</div><div class="line">-   **第6步：执行自动化**</div></pre></td></tr></table></figure></p>
+<p>$ hexo new test<br>$ sh hexo_git_deplay.sh<br>```<br>脚本自动化发布成功！可以看到钩子成功执行！查看nginx的静态目录。发现test文件已经存在，甚至不用重启nginx！<br>至此完成自动化！</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/test/">test</a>
+  <span></span> <a href="/tags/hexo自动化/">hexo自动化</a>
   </div>
 
 
@@ -114,7 +160,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://139.129.18.59:4000/2016/10/14/page/" data-title="page | Ken of Blog" data-tsina="5827539012" class="share clearfix">
+  <div data-url="http://139.129.18.59:4000/2016/11/14/hexo自动化/" data-title="hexo部署和自动化发布 | Ken of Blog" data-tsina="5827539012" class="share clearfix">
   </div>
 
 </div>
@@ -124,20 +170,28 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/10/14/markdown的使用方法/" title="markdown的使用方法">
+ <a href="/2017/01/14/hexo配置注意的地方/" title="发布文章注意">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  markdown的使用方法</span>
+  发布文章注意</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2016/10/14/markdown的使用方法/"  title="markdown的使用方法">
+ <strong>NEXT:</strong><br/> 
+ <span>markdown的使用方法
+</span>
+</a>
+</div>
 
 </nav>
 
 	
 <section class="comment">
 	
-	<div class="ds-thread" data-title="page" data-thread-key="page" data-author-key="ken" data-url="http://139.129.18.59:4000/post/page"></div>
+	<div class="ds-thread" data-title="hexo部署和自动化发布" data-thread-key="hexo自动化" data-author-key="ken" data-url="http://139.129.18.59:4000/post/hexo自动化"></div>
 	
 </section>
 
