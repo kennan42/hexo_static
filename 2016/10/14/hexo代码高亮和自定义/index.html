@@ -7,12 +7,19 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>hexo发布文章注意 | Ken of Blog</title>
+    <title>hexo代码高亮和自定义 | Ken of Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="ken">
     
-    <meta name="description" content="@(markdown)[注意]注意点1：发布的时候,检查_config.yml内容，特别注意:后面需要有一个空格：tags: markdown不然会报错：can not read a block mapping entry; a multiline key may not be an implici">
+    <meta name="description" content="[TOC]
+设置代码高亮设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+然后theme">
     
     
     
@@ -86,15 +93,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/14/hexo配置注意的地方/" title="hexo发布文章注意" itemprop="url">hexo发布文章注意</a>
+      <a href="/2016/10/14/hexo代码高亮和自定义/" title="hexo代码高亮和自定义" itemprop="url">hexo代码高亮和自定义</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://139.129.18.59" title="ken">ken</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-01-14T03:10:06.000Z" itemprop="datePublished">2017-01-14</time>
-  <!--  更新日期:<time datetime="2017-02-28T06:53:50.700Z" itemprop="dateModified">2017-02-28</time>
+    <time datetime="2016-10-14T03:10:06.000Z" itemprop="datePublished">2016-10-14</time>
+  <!--  更新日期:<time datetime="2017-03-01T03:25:51.738Z" itemprop="dateModified">2017-03-01</time>
      -->
   </p>
 </header>
@@ -104,17 +111,72 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置代码高亮"><span class="toc-number">1.</span> <span class="toc-text">设置代码高亮</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义代码高亮"><span class="toc-number">2.</span> <span class="toc-text">自定义代码高亮</span></a></li></ol>
 		</div>
 		
-		<p>@(markdown)[注意]<br><strong>注意点1：</strong>发布的时候,检查_config.yml内容，特别注意:后面需要有一个空格：tags: markdown<br>不然会报错：<br>can not read a block mapping entry; a multiline key may not be an implicit key</p>
-  
+		<p>[TOC]</p>
+<h4 id="设置代码高亮"><a href="#设置代码高亮" class="headerlink" title="设置代码高亮"></a>设置代码高亮</h4><p>设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：</p>
+<pre><code>highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+</code></pre><p>然后themes的config也要添加相应的高亮配置。<br>这段代码的作用，查看source/css/style.styl里面:</p>
+<pre><code>@import &#39;nib&#39;
+
+global-reset()
+@import &#39;_base/variable&#39;
+@import &#39;_base/font&#39;
+@import &#39;_base/public&#39;
+@import &#39;_partial/header&#39;
+@import &#39;_partial/index&#39;
+@import &#39;_partial/article&#39;
+@import &#39;_partial/helper&#39;
+@import &#39;_partial/aside&#39;
+@import &#39;_partial/footer&#39;
+if highlight
+  @import &#39;_base/code&#39;
+if duoshuo
+  @import &#39;_partial/duoshuo&#39;
+if fancybox
+  @import &#39;_partial/gallery&#39;
+</code></pre><p>可以看到，如果设置highlight，那么就引入_base/code下面的css样式。</p>
+<h4 id="自定义代码高亮"><a href="#自定义代码高亮" class="headerlink" title="自定义代码高亮"></a>自定义代码高亮</h4><p>Wordpress有个<a href="https://github.com/google/code-prettify" target="_blank" rel="external">Google Prettify</a>插件，在这里也可以进行高亮显示。<br>首先将config配置的highlight关闭：</p>
+<pre><code>highlight:
+  enable: false
+  line_number: false
+  auto_detect: false
+  tab_replace:
+</code></pre><p>然后我们需要下载<a href="https://raw.githubusercontent.com/google/code-prettify/master/distrib/prettify-small.zip" target="_blank" rel="external">prettify</a>，并引入css和js文件</p>
+<pre><code> &lt;!-- 代码高亮--&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/prettify.css&quot; type=&quot;text/css&quot;&gt;
+ &lt;script src=&quot;/js/prettify.js&quot;type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre><p>这段代码需要在页面的head引入：<br>在layout的head.ejs文件中，我们可以查看有js,css文件引入，后面添加即可。</p>
+<p>最后我们需要在网页加载完成之后调用即可：</p>
+<pre><code>$(window).load(function(){
+ $(&#39;pre&#39;).addClass(&#39;prettyprint linenums&#39;).attr(&#39;style&#39;, &#39;overflow:auto;&#39;);
+   prettyPrint();
+ })
+</code></pre><blockquote>
+<p><strong>注意：</strong>这段代码使用$(window).load，这是在页面加载完成后调用，跟(document).ready(function() 有所区别。前者只能调用一次，后者能调用多次。在这里，我们添加到文件after_footer.ejs中</p>
+</blockquote>
+<pre><code>$(document).ready(function(){ 
+   console.log(&quot;执行调用prettify  start&quot;);
+  $(&#39;pre&#39;).addClass(&#39;prettyprint linenums&#39;).attr(&#39;style&#39;, &#39;overflow:auto;&#39;);
+   prettyPrint();
+   console.log(&quot;执行调用prettify  end&quot;);
+</code></pre><p>另外关于代码高亮的主题，可以在这个<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/" target="_blank" rel="external">网站</a>选择一套你喜欢的主题替换上面的prettify.css即可。<br>最后添加代码如下：</p>
+<pre><code>#head.ejs
+&lt;!-- 代码高亮--&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/tranquil-heart.min.css&quot; type=&quot;text/css&quot;&gt;
+    &lt;script src=&quot;/js/prettify.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo配置/">hexo配置</a>
+  <span></span> <a href="/tags/hexo代码高亮/">hexo代码高亮</a>
   </div>
 
 
@@ -127,7 +189,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://139.129.18.59/2017/01/14/hexo配置注意的地方/" data-title="hexo发布文章注意 | Ken of Blog" data-tsina="5827539012" class="share clearfix">
+  <div data-url="http://139.129.18.59/2016/10/14/hexo代码高亮和自定义/" data-title="hexo代码高亮和自定义 | Ken of Blog" data-tsina="5827539012" class="share clearfix">
   </div>
 
 </div>
@@ -136,11 +198,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/11/14/hexo自动化/" title="hexo部署和自动化发布">
+  <strong>上一篇:</strong><br/>
+  <span>
+  hexo部署和自动化发布</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2016/11/14/hexo自动化/"  title="hexo部署和自动化发布">
+<a href="/2016/10/14/markdown使用/"  title="markdown的使用方法">
  <strong>下一篇:</strong><br/> 
- <span>hexo部署和自动化发布
+ <span>markdown的使用方法
 </span>
 </a>
 </div>
@@ -151,7 +221,7 @@
 	
 <section class="comment">
 	
-	<div class="ds-thread" data-title="hexo发布文章注意" data-thread-key="hexo配置注意的地方" data-author-key="ken" data-url="http://139.129.18.59/post/hexo配置注意的地方"></div>
+	<div class="ds-thread" data-title="hexo代码高亮和自定义" data-thread-key="hexo代码高亮和自定义" data-author-key="ken" data-url="http://139.129.18.59/post/hexo代码高亮和自定义"></div>
 	
 </section>
 
@@ -161,7 +231,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置代码高亮"><span class="toc-number">1.</span> <span class="toc-text">设置代码高亮</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义代码高亮"><span class="toc-number">2.</span> <span class="toc-text">自定义代码高亮</span></a></li></ol>
   </div>
 
 <div id="asidepart">
