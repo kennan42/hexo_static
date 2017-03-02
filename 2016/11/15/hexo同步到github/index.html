@@ -7,12 +7,20 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>hexo发布文章注意 | Ken of Blog</title>
+    <title>hexo同步到github | Ken of Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="ken">
     
-    <meta name="description" content="@(markdown)[注意]注意点1：发布的时候,检查_config.yml内容，特别注意:后面需要有一个空格：tags: markdown不然会报错：can not read a block mapping entry; a multiline key may not be an implici">
+    <meta name="description" content="@(马克飞象)
+上传本地项目到github
+建立Git仓库git init
+
+将项目文件添加到仓库中git add .
+注意：add后面有个 .
+将我们添加的文件commit到git仓库， 添加注释git commit -m &amp;quot;注释&amp;quot;
+
+将本地的仓库与github上的仓库进行关联">
     
     
     
@@ -137,15 +145,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/14/hexo配置注意的地方/" title="hexo发布文章注意" itemprop="url">hexo发布文章注意</a>
+      <a href="/2016/11/15/hexo同步到github/" title="hexo同步到github" itemprop="url">hexo同步到github</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://139.129.18.59" title="ken">ken</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-01-14T03:10:06.000Z" itemprop="datePublished">2017-01-14</time>
-  <!--  更新日期:<time datetime="2017-02-28T06:53:50.700Z" itemprop="dateModified">2017-02-28</time>
+    <time datetime="2016-11-15T04:10:06.000Z" itemprop="datePublished">2016-11-15</time>
+  <!--  更新日期:<time datetime="2017-03-02T06:18:45.820Z" itemprop="dateModified">2017-03-02</time>
      -->
   </p>
 </header>
@@ -155,17 +163,36 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#上传本地项目到github"><span class="toc-number">1.</span> <span class="toc-text">上传本地项目到github</span></a></li></ol>
 		</div>
 		
-		<p>@(markdown)[注意]<br><strong>注意点1：</strong>发布的时候,检查_config.yml内容，特别注意:后面需要有一个空格：tags: markdown<br>不然会报错：<br>can not read a block mapping entry; a multiline key may not be an implicit key</p>
+		<p>@(马克飞象)</p>
+<h4 id="上传本地项目到github"><a href="#上传本地项目到github" class="headerlink" title="上传本地项目到github"></a>上传本地项目到github</h4><ol>
+<li><strong>建立Git仓库</strong><pre><code>git init
+</code></pre></li>
+<li><strong>将项目文件添加到仓库中</strong><pre><code>git add .
+</code></pre>注意：add后面有个 .</li>
+<li><strong>将我们添加的文件commit到git仓库， 添加注释</strong><pre><code>git commit -m &quot;注释&quot;
+</code></pre></li>
+<li><p><strong>将本地的仓库与github上的仓库进行关联</strong></p>
+<pre><code>git remote add origin &quot;git仓库的地址&quot;
+</code></pre><blockquote>
+<p>在这个工程中可能要求你输入账户密码，我们先保存ssh密钥在git上，使用git协议的地址就不会要求你输入了。</p>
+</blockquote>
+</li>
+<li><p><strong>上传之前我们先从git上拉取一下</strong></p>
+<pre><code>git pull origin master
+</code></pre></li>
+<li><strong>push本地项目到远程仓库</strong><pre><code>git push -u origin master
+</code></pre>至此项目就上传到github上了。</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo配置/">hexo配置</a>
+  <span></span> <a href="/tags/hexo/">hexo</a>
   </div>
 
 
@@ -178,7 +205,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://139.129.18.59/2017/01/14/hexo配置注意的地方/" data-title="hexo发布文章注意 | Ken of Blog" data-tsina="5827539012" class="share clearfix">
+  <div data-url="http://139.129.18.59/2016/11/15/hexo同步到github/" data-title="hexo同步到github | Ken of Blog" data-tsina="5827539012" class="share clearfix">
   </div>
 
 </div>
@@ -188,18 +215,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/01/15/hexo代码高亮和自定义/" title="hexo代码高亮和自定义">
+ <a href="/2017/01/14/hexo配置注意的地方/" title="hexo发布文章注意">
   <strong>上一篇:</strong><br/>
   <span>
-  hexo代码高亮和自定义</span>
+  hexo发布文章注意</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/11/15/hexo同步到github/"  title="hexo同步到github">
+<a href="/2016/11/14/hexo自动化/"  title="hexo部署和自动化发布">
  <strong>下一篇:</strong><br/> 
- <span>hexo同步到github
+ <span>hexo部署和自动化发布
 </span>
 </a>
 </div>
@@ -210,7 +237,7 @@
 	
 <section class="comment">
 	
-	<div class="ds-thread" data-title="hexo发布文章注意" data-thread-key="hexo配置注意的地方" data-author-key="ken" data-url="http://139.129.18.59/post/hexo配置注意的地方"></div>
+	<div class="ds-thread" data-title="hexo同步到github" data-thread-key="hexo同步到github" data-author-key="ken" data-url="http://139.129.18.59/post/hexo同步到github"></div>
 	
 </section>
 
@@ -220,7 +247,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#上传本地项目到github"><span class="toc-number">1.</span> <span class="toc-text">上传本地项目到github</span></a></li></ol>
   </div>
 
 <div id="asidepart">
