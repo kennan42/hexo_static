@@ -36,7 +36,8 @@ function changeFond(){
 		    couleurFond = "#7f8c8d";
 		    break;           
 		} 
-		document.body.style.background = couleurFond;
+	//	document.body.style.background = couleurFond;
+		document.head.style.background = couleurFond;
 }
 
 function changeCouleur(){
@@ -48,7 +49,7 @@ function changeCouleur(){
 			}
 		}
 
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < 1; i++) {
     	var couleurSlime;
 		var corpsSlime = document.getElementsByClassName("corps");
 		
@@ -87,5 +88,5 @@ function changeCouleur(){
 		corpsSlime[i].style.fill = couleurSlime;
 		}
 }
-//changeFond();
-//changeCouleur();
+// changeFond();
+// changeCouleur();
