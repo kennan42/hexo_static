@@ -6,19 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://139.129.18.59">
-  <title>Tag: hexo代码高亮 | Ken of Blog</title>
+  <title>hexo代码高亮和自定义 | Ken of Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ken of Blog">
-<meta property="og:url" content="http://139.129.18.59/tags/hexo代码高亮/index.html">
+  <meta name="description" content="设置代码高亮设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+然后themes的config也要添加相应的高亮配置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo代码高亮和自定义">
+<meta property="og:url" content="http://139.129.18.59/2016/11/14/hexo代码高亮和自定义/index.html">
 <meta property="og:site_name" content="Ken of Blog">
+<meta property="og:description" content="设置代码高亮设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+然后themes的config也要添加相应的高亮配置。">
+<meta property="og:updated_time" content="2017-03-08T08:10:22.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ken of Blog">
+<meta name="twitter:title" content="hexo代码高亮和自定义">
+<meta name="twitter:description" content="设置代码高亮设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+然后themes的config也要添加相应的高亮配置。">
   
     <link rel="alternative" href="/atom.xml" title="Ken of Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
   <style type="text/css">
@@ -64,12 +86,14 @@
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/archives">所有文章</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索文章</a>
     			
             
     			
@@ -118,6 +142,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -133,12 +159,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives">所有文章</a></li>
 		        
 				</ul>
 			</nav>
@@ -153,71 +181,235 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hexo代码高亮和自定义" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/15/hexo代码高亮和自定义/" class="archive-article-date">
-  	<time datetime="2017-01-15T03:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/15/hexo代码高亮和自定义/">hexo代码高亮和自定义</a>
+    <h1 class="article-title" itemprop="name">
+      hexo代码高亮和自定义
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/11/14/hexo代码高亮和自定义/" class="archive-article-date">
+  	<time datetime="2016-11-14T03:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="设置代码高亮"><a href="#设置代码高亮" class="headerlink" title="设置代码高亮"></a>设置代码高亮</h4><p>设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：</p>
+<pre><code>highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+</code></pre><p>然后themes的config也要添加相应的高亮配置。<br><a id="more"></a><br>这段代码的作用，查看source/css/style.styl里面:</p>
+<pre><code>@import &#39;nib&#39;
+
+global-reset()
+@import &#39;_base/variable&#39;
+@import &#39;_base/font&#39;
+@import &#39;_base/public&#39;
+@import &#39;_partial/header&#39;
+@import &#39;_partial/index&#39;
+@import &#39;_partial/article&#39;
+@import &#39;_partial/helper&#39;
+@import &#39;_partial/aside&#39;
+@import &#39;_partial/footer&#39;
+if highlight
+  @import &#39;_base/code&#39;
+if duoshuo
+  @import &#39;_partial/duoshuo&#39;
+if fancybox
+  @import &#39;_partial/gallery&#39;
+</code></pre><p>可以看到，如果设置highlight，那么就引入_base/code下面的css样式。</p>
+<h4 id="自定义代码高亮"><a href="#自定义代码高亮" class="headerlink" title="自定义代码高亮"></a>自定义代码高亮</h4><p>Wordpress有个<a href="https://github.com/google/code-prettify" target="_blank" rel="external">Google Prettify</a>插件，在这里也可以进行高亮显示。<br>首先将config配置的highlight关闭：</p>
+<pre><code>highlight:
+  enable: false
+  line_number: false
+  auto_detect: false
+  tab_replace:
+</code></pre><p>然后我们需要下载<a href="https://raw.githubusercontent.com/google/code-prettify/master/distrib/prettify-small.zip" target="_blank" rel="external">prettify</a>，并引入css和js文件</p>
+<pre><code> &lt;!-- 代码高亮--&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/prettify.css&quot; type=&quot;text/css&quot;&gt;
+ &lt;script src=&quot;/js/prettify.js&quot;type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre><p>这段代码需要在页面的head引入：<br>在layout的head.ejs文件中，我们可以查看有js,css文件引入，后面添加即可。</p>
+<p>最后我们需要在网页加载完成之后调用即可：</p>
+<pre><code>$(window).load(function(){
+ $(&#39;pre&#39;).addClass(&#39;prettyprint linenums&#39;).attr(&#39;style&#39;, &#39;overflow:auto;&#39;);
+   prettyPrint();
+ })
+</code></pre><blockquote>
+<p><strong>注意：</strong>这段代码使用$(window).load，这是在页面加载完成后调用，跟(document).ready(function() 有所区别。前者只能调用一次，后者能调用多次。在这里，我们添加到文件after_footer.ejs中</p>
+</blockquote>
+<pre><code>$(document).ready(function(){ 
+   console.log(&quot;执行调用prettify  start&quot;);
+  $(&#39;pre&#39;).addClass(&#39;prettyprint linenums&#39;).attr(&#39;style&#39;, &#39;overflow:auto;&#39;);
+   prettyPrint();
+   console.log(&quot;执行调用prettify  end&quot;);
+</code></pre><p>另外关于代码高亮的主题，可以在这个<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/" target="_blank" rel="external">网站</a>选择一套你喜欢的主题替换上面的prettify.css即可。<br>最后添加代码如下：</p>
+<pre><code>#head.ejs
+&lt;!-- 代码高亮--&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/tranquil-heart.min.css&quot; type=&quot;text/css&quot;&gt;
+    &lt;script src=&quot;/js/prettify.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo代码高亮</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2016/11/14/hexo代码高亮和自定义/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/15/hexo同步到github/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hexo同步到github
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/11/14/hexo自动化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo部署和自动化发布</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="hexo代码高亮和自定义" data-title="hexo代码高亮和自定义" data-url="http://139.129.18.59/2016/11/14/hexo代码高亮和自定义/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -240,9 +432,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
@@ -281,7 +473,7 @@
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索文章</a></li>
       
         
       
@@ -308,7 +500,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo代码高亮</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -316,15 +508,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hexo自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo配置</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -375,7 +567,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家i</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿一枚&lt;br&gt;专注于三端开发，着重于后台&lt;br&gt;目前打算慢慢将以前笔记整理成博客&lt;br&gt;感谢关注！</div>
   	  	
     	</section>
     

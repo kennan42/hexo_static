@@ -6,41 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://139.129.18.59">
-  <title>hexo代码高亮和自定义 | Ken of Blog</title>
+  <title>NFS安装配置 | Ken of Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="设置代码高亮设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
-然后themes的config也要添加相应的高亮配置。">
+  <meta name="description" content="一、NFS服务简介　　NFS 是Network File System的缩写，即网络文件系统。一种使用于分散式文件系统的协定，由Sun公司开发，于1984年向外公布。功能是通过网络让不同的机器、不同的操作系统能够彼此分享个别的数据，让应用程序在客户端通过网络访问位于服务器磁盘中的数据，是在类Unix系统间实现磁盘文件共享的一种方法。
+　　NFS 的基本原则是“容许不同的客户端及服务端通过一组RPC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo代码高亮和自定义">
-<meta property="og:url" content="http://139.129.18.59/2017/01/15/hexo代码高亮和自定义/index.html">
+<meta property="og:title" content="NFS安装配置">
+<meta property="og:url" content="http://139.129.18.59/2016/11/15/NFS安装配置/index.html">
 <meta property="og:site_name" content="Ken of Blog">
-<meta property="og:description" content="设置代码高亮设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
-然后themes的config也要添加相应的高亮配置。">
-<meta property="og:updated_time" content="2017-03-05T15:26:28.464Z">
+<meta property="og:description" content="一、NFS服务简介　　NFS 是Network File System的缩写，即网络文件系统。一种使用于分散式文件系统的协定，由Sun公司开发，于1984年向外公布。功能是通过网络让不同的机器、不同的操作系统能够彼此分享个别的数据，让应用程序在客户端通过网络访问位于服务器磁盘中的数据，是在类Unix系统间实现磁盘文件共享的一种方法。
+　　NFS 的基本原则是“容许不同的客户端及服务端通过一组RPC">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_01.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_02.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_03.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_04.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_05.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_06.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_07.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_08.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_09.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_10.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_11.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_12.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_13.jpg">
+<meta property="og:image" content="http://139.129.18.59/photos/nfs/nfs_14.jpg">
+<meta property="og:updated_time" content="2017-03-08T08:10:22.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo代码高亮和自定义">
-<meta name="twitter:description" content="设置代码高亮设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
-然后themes的config也要添加相应的高亮配置。">
+<meta name="twitter:title" content="NFS安装配置">
+<meta name="twitter:description" content="一、NFS服务简介　　NFS 是Network File System的缩写，即网络文件系统。一种使用于分散式文件系统的协定，由Sun公司开发，于1984年向外公布。功能是通过网络让不同的机器、不同的操作系统能够彼此分享个别的数据，让应用程序在客户端通过网络访问位于服务器磁盘中的数据，是在类Unix系统间实现磁盘文件共享的一种方法。
+　　NFS 的基本原则是“容许不同的客户端及服务端通过一组RPC">
+<meta name="twitter:image" content="http://139.129.18.59/photos/nfs/nfs_01.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Ken of Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
   <style type="text/css">
@@ -86,12 +86,14 @@ highlight:
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/archives">所有文章</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索文章</a>
     			
             
     			
@@ -140,6 +142,8 @@ highlight:
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -155,12 +159,14 @@ highlight:
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives">所有文章</a></li>
 		        
 				</ul>
 			</nav>
@@ -175,82 +181,196 @@ highlight:
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo代码高亮和自定义" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-NFS安装配置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo代码高亮和自定义
+      NFS安装配置
     </h1>
   
 
         
-        <a href="/2017/01/15/hexo代码高亮和自定义/" class="archive-article-date">
-  	<time datetime="2017-01-15T03:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-15</time>
+        <a href="/2016/11/15/NFS安装配置/" class="archive-article-date">
+  	<time datetime="2016-11-15T04:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="设置代码高亮"><a href="#设置代码高亮" class="headerlink" title="设置代码高亮"></a>设置代码高亮</h4><p>设置好主题后，发布文章后，有的主题并没有设置代码高亮。要在hexo设置代码高亮，修改config：</p>
-<pre><code>highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
-</code></pre><p>然后themes的config也要添加相应的高亮配置。<br><a id="more"></a><br>这段代码的作用，查看source/css/style.styl里面:</p>
-<pre><code>@import &#39;nib&#39;
-
-global-reset()
-@import &#39;_base/variable&#39;
-@import &#39;_base/font&#39;
-@import &#39;_base/public&#39;
-@import &#39;_partial/header&#39;
-@import &#39;_partial/index&#39;
-@import &#39;_partial/article&#39;
-@import &#39;_partial/helper&#39;
-@import &#39;_partial/aside&#39;
-@import &#39;_partial/footer&#39;
-if highlight
-  @import &#39;_base/code&#39;
-if duoshuo
-  @import &#39;_partial/duoshuo&#39;
-if fancybox
-  @import &#39;_partial/gallery&#39;
-</code></pre><p>可以看到，如果设置highlight，那么就引入_base/code下面的css样式。</p>
-<h4 id="自定义代码高亮"><a href="#自定义代码高亮" class="headerlink" title="自定义代码高亮"></a>自定义代码高亮</h4><p>Wordpress有个<a href="https://github.com/google/code-prettify" target="_blank" rel="external">Google Prettify</a>插件，在这里也可以进行高亮显示。<br>首先将config配置的highlight关闭：</p>
-<pre><code>highlight:
-  enable: false
-  line_number: false
-  auto_detect: false
-  tab_replace:
-</code></pre><p>然后我们需要下载<a href="https://raw.githubusercontent.com/google/code-prettify/master/distrib/prettify-small.zip" target="_blank" rel="external">prettify</a>，并引入css和js文件</p>
-<pre><code> &lt;!-- 代码高亮--&gt;
- &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/prettify.css&quot; type=&quot;text/css&quot;&gt;
- &lt;script src=&quot;/js/prettify.js&quot;type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-</code></pre><p>这段代码需要在页面的head引入：<br>在layout的head.ejs文件中，我们可以查看有js,css文件引入，后面添加即可。</p>
-<p>最后我们需要在网页加载完成之后调用即可：</p>
-<pre><code>$(window).load(function(){
- $(&#39;pre&#39;).addClass(&#39;prettyprint linenums&#39;).attr(&#39;style&#39;, &#39;overflow:auto;&#39;);
-   prettyPrint();
- })
-</code></pre><blockquote>
-<p><strong>注意：</strong>这段代码使用$(window).load，这是在页面加载完成后调用，跟(document).ready(function() 有所区别。前者只能调用一次，后者能调用多次。在这里，我们添加到文件after_footer.ejs中</p>
+        <h4 id="一、NFS服务简介"><a href="#一、NFS服务简介" class="headerlink" title="一、NFS服务简介"></a>一、NFS服务简介</h4><p>　　NFS 是Network File System的缩写，即网络文件系统。一种使用于分散式文件系统的协定，由Sun公司开发，于1984年向外公布。功能是通过网络让不同的机器、不同的操作系统能够彼此分享个别的数据，让应用程序在客户端通过网络访问位于服务器磁盘中的数据，是在类Unix系统间实现磁盘文件共享的一种方法。</p>
+<p>　　NFS 的基本原则是“容许不同的客户端及服务端通过一组RPC分享相同的文件系统”，它是独立于操作系统，容许不同硬件及操作系统的系统共同进行文件的分享。<br><a id="more"></a><br>　　NFS在文件传送或信息传送过程中依赖于RPC协议。RPC，远程过程调用 (Remote Procedure Call) 是能使客户端执行其他系统中程序的一种机制。NFS本身是没有提供信息传输的协议和功能的，但NFS却能让我们通过网络进行资料的分享，这是因为NFS使用了一些其它的传输协议。而这些传输协议用到这个RPC功能的。可以说NFS本身就是使用RPC的一个程序。或者说NFS也是一个RPC SERVER。所以只要用到NFS的地方都要启动RPC服务，不论是NFS SERVER或者NFS CLIENT。这样SERVER和CLIENT才能通过RPC来实现PROGRAM PORT的对应。可以这么理解RPC和NFS的关系：NFS是一个文件系统，而RPC是负责负责信息的传输。</p>
+<h4 id="二、系统环境"><a href="#二、系统环境" class="headerlink" title="二、系统环境"></a>二、系统环境</h4><p>系统平台：CentOS release 5.6 (Final)</p>
+<p>NFS Server IP：192.168.1.108</p>
+<p>防火墙已关闭/iptables: Firewall is not running.</p>
+<p>SELINUX=disabled</p>
+<h4 id="三、检查安装NFS服务（旧版linux安装）"><a href="#三、检查安装NFS服务（旧版linux安装）" class="headerlink" title="三、检查安装NFS服务（旧版linux安装）"></a>三、检查安装NFS服务（旧版linux安装）</h4><p>NFS的安装是非常简单的，只需要两个软件包即可，而且在通常情况下，是作为系统的默认包安装的。</p>
+<ul>
+<li>nfs-utils- * ：包括基本的NFS命令与监控程序 </li>
+<li>portmap- * ：支持安全NFS RPC服务的连接<h5 id="1、查看系统是否已安装NFS"><a href="#1、查看系统是否已安装NFS" class="headerlink" title="1、查看系统是否已安装NFS"></a>1、查看系统是否已安装NFS</h5><pre><code>[cttq@ainewdev ~]$ rpm -qa|grep nfs
+nfs4-acl-tools-0.3.3-8.el6.x86_64
+nfs-utils-1.2.3-70.el6_8.2.x86_64
+nfs-utils-lib-1.1.5-11.el6.x86_64
+[cttq@ainewdev ~]$ rpm -qa|grep portmap
+</code></pre></li>
+</ul>
+<p>系统默认已安装了nfs-utils portmap 两个软件包。</p>
+<h5 id="2、如果当前系统中没有安装NFS所需的软件包，需要手工进行安装。nfs-utils-和portmap-两个包的安装文件在系统光盘中都会有。"><a href="#2、如果当前系统中没有安装NFS所需的软件包，需要手工进行安装。nfs-utils-和portmap-两个包的安装文件在系统光盘中都会有。" class="headerlink" title="2、如果当前系统中没有安装NFS所需的软件包，需要手工进行安装。nfs-utils 和portmap 两个包的安装文件在系统光盘中都会有。"></a>2、如果当前系统中没有安装NFS所需的软件包，需要手工进行安装。nfs-utils 和portmap 两个包的安装文件在系统光盘中都会有。</h5><pre><code># mount /dev/cdrom /mnt/cdrom/ 
+# cd /mnt/cdrom/CentOS/ 
+# rpm -ivh portmap-4.0-65.2.2.1.i386.rpm 
+# rpm -ivh nfs-utils-1.0.9-50.el5.i386.rpm 
+# rpm -q nfs-utils portmap
+</code></pre><p><code>检查的时候发现portmap不存在，命令</code></p>
+<pre><code>more /etc/issue
+</code></pre><p><code>查看当前系统版本：CentOS release 6.8
+上面的portmap服务在centos 6.4中已经被rpcbind取代，所以采用下面的检查安装方法：</code>。</p>
+<h5 id="1、检查系统是否开启nfs服务：service-nfs-status-结果显示nfs-unrecognized-service，说明系统没有安装nfs服务-so-安装之；"><a href="#1、检查系统是否开启nfs服务：service-nfs-status-结果显示nfs-unrecognized-service，说明系统没有安装nfs服务-so-安装之；" class="headerlink" title="1、检查系统是否开启nfs服务：service nfs status 结果显示nfs: unrecognized service，说明系统没有安装nfs服务,so 安装之；"></a>1、检查系统是否开启nfs服务：service nfs status 结果显示nfs: unrecognized service，说明系统没有安装nfs服务,so 安装之；</h5><p><code>注意，yum install nfs是无法安装的，应该用yum install nfs-utils.</code></p>
+<h5 id="2、检查是否开启rpcbind服务：service-rpcbind-status"><a href="#2、检查是否开启rpcbind服务：service-rpcbind-status" class="headerlink" title="2、检查是否开启rpcbind服务：service rpcbind status"></a>2、检查是否开启rpcbind服务：service rpcbind status</h5><p>发现已经在nfs-utils的时候一起安装了。<br><code>总结：yum install nfs-utils</code></p>
+<h4 id="四、NFS系统守护进程"><a href="#四、NFS系统守护进程" class="headerlink" title="四、NFS系统守护进程"></a>四、NFS系统守护进程</h4><ul>
+<li>nfsd：它是基本的NFS守护进程，主要功能是管理客户端是否能够登录服务器；</li>
+<li>mountd：它是RPC安装守护进程，主要功能是管理NFS的文件系统。当客户端顺利通过nfsd登录NFS服务器后，在使用NFS服务所提供的文件前，还必须通过文件使用权限的验证。它会读取NFS的配置文件/etc/exports来对比客户端权限。</li>
+<li>portmap：主要功能是进行端口映射工作。当客户端尝试连接并使用RPC服务器提供的服务（如NFS服务）时，portmap会将所管理的与服务对应的端口提供给客户端，从而使客户可以通过该端口向服务器请求服务。<h4 id="五、NFS服务器的配置"><a href="#五、NFS服务器的配置" class="headerlink" title="五、NFS服务器的配置"></a>五、NFS服务器的配置</h4></li>
+</ul>
+<p>NFS服务器的配置相对比较简单，只需要在相应的配置文件中进行设置，然后启动NFS服务器即可。</p>
+<p><code>NFS的常用目录:</code></p>
+<blockquote>
+<p>/etc/exports                           NFS服务的主要配置文件<br>/usr/sbin/exportfs                   NFS服务的管理命令<br>/usr/sbin/showmount              客户端的查看命令<br>/var/lib/nfs/etab                      记录NFS分享出来的目录的完整权限设定值<br>/var/lib/nfs/xtab                      记录曾经登录过的客户端信息<br>NFS服务的配置文件为 /etc/exports，这个文件是NFS的主要配置文件，不过系统并没有默认值，所以这个文件不一定会存在，可能要使用vim手动建立，然后在文件里面写入配置内容。</p>
 </blockquote>
-<pre><code>$(document).ready(function(){ 
-   console.log(&quot;执行调用prettify  start&quot;);
-  $(&#39;pre&#39;).addClass(&#39;prettyprint linenums&#39;).attr(&#39;style&#39;, &#39;overflow:auto;&#39;);
-   prettyPrint();
-   console.log(&quot;执行调用prettify  end&quot;);
-</code></pre><p>另外关于代码高亮的主题，可以在这个<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/" target="_blank" rel="external">网站</a>选择一套你喜欢的主题替换上面的prettify.css即可。<br>最后添加代码如下：</p>
-<pre><code>#head.ejs
-&lt;!-- 代码高亮--&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/tranquil-heart.min.css&quot; type=&quot;text/css&quot;&gt;
-    &lt;script src=&quot;/js/prettify.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-</code></pre>
+<p>/etc/exports文件内容格式：</p>
+<pre><code>&lt;输出目录&gt; [客户端1 选项（访问权限,用户映射,其他）] [客户端2 选项（访问权限,用户映射,其他）]
+</code></pre><h6 id="a-输出目录："><a href="#a-输出目录：" class="headerlink" title="a. 输出目录："></a>a. 输出目录：</h6><p>输出目录是指NFS系统中需要共享给客户机使用的目录；</p>
+<h6 id="b-客户端："><a href="#b-客户端：" class="headerlink" title="b. 客户端："></a>b. 客户端：</h6><p>客户端是指网络中可以访问这个NFS输出目录的计算机</p>
+<p>客户端常用的指定方式</p>
+<ul>
+<li>指定ip地址的主机：192.168.0.200</li>
+<li>指定子网中的所有主机：192.168.0.0/24 192.168.0.0/255.255.255.0</li>
+<li>指定域名的主机：david.bsmart.cn</li>
+<li>指定域中的所有主机：*.bsmart.cn</li>
+<li>所有主机：*</li>
+</ul>
+<h6 id="c-选项："><a href="#c-选项：" class="headerlink" title="c. 选项："></a>c. 选项：</h6><p>选项用来设置输出目录的访问权限、用户映射等。</p>
+<p>NFS主要有3类选项：</p>
+<p>访问权限选项</p>
+<ul>
+<li>设置输出目录只读：ro</li>
+<li><p>设置输出目录读写：rw<br>用户映射选项</p>
+</li>
+<li><p>all_squash：将远程访问的所有普通用户及所属组都映射为匿名用户或用户组（nfsnobody）；</p>
+</li>
+<li>no_all_squash：与all_squash取反（默认设置）；</li>
+<li>root_squash：将root用户及所属组都映射为匿名用户或用户组（默认设置）；</li>
+<li>no_root_squash：与rootsquash取反；</li>
+<li>anonuid=xxx：将远程访问的所有用户都映射为匿名用户，并指定该用户为本地用户（UID=xxx）；</li>
+<li><p>anongid=xxx：将远程访问的所有用户组都映射为匿名用户组账户，并指定该匿名用户组账户为本地用户组账户（GID=xxx）；<br>其它选项</p>
+</li>
+<li><p>secure：限制客户端只能从小于1024的tcp/ip端口连接nfs服务器（默认设置）；</p>
+</li>
+<li>insecure：允许客户端从大于1024的tcp/ip端口连接服务器；</li>
+<li>sync：将数据同步写入内存缓冲区与磁盘中，效率低，但可以保证数据的一致性；</li>
+<li>async：将数据先保存在内存缓冲区中，必要时才写入磁盘；</li>
+<li>wdelay：检查是否有相关的写操作，如果有则将这些写操作一起执行，这样可以提高效率（默认设置）；</li>
+<li>no_wdelay：若有写操作则立即执行，应与sync配合使用；</li>
+<li>subtree：若输出目录是一个子目录，则nfs服务器将检查其父目录的权限(默认设置)；</li>
+<li>no_subtree：即使输出目录是一个子目录，nfs服务器也不检查其父目录的权限，这样可以提高效率；</li>
+</ul>
+<h4 id="六、NFS服务器的启动与停止"><a href="#六、NFS服务器的启动与停止" class="headerlink" title="六、NFS服务器的启动与停止"></a>六、NFS服务器的启动与停止</h4><p>在对exports文件进行了正确的配置后，就可以启动NFS服务器了。</p>
+<h5 id="1、启动NFS服务器"><a href="#1、启动NFS服务器" class="headerlink" title="1、启动NFS服务器"></a>1、启动NFS服务器</h5><p>为了使NFS服务器能正常工作，需要启动portmap和nfs两个服务，并且portmap一定要先于nfs启动。</p>
+<pre><code># service rpcbind start
+# service nfs start
+</code></pre><h5 id="2、查询NFS服务器状态"><a href="#2、查询NFS服务器状态" class="headerlink" title="2、查询NFS服务器状态"></a>2、查询NFS服务器状态</h5><pre><code># service rpcbind status
+# service nfs status
+</code></pre><h5 id="3、停止NFS服务器"><a href="#3、停止NFS服务器" class="headerlink" title="3、停止NFS服务器"></a>3、停止NFS服务器</h5><p>要停止NFS运行时，需要先停止nfs服务再停止portmap服务，对于系统中有其他服务(如NIS)需要使用时，不需要停止portmap服务</p>
+<pre><code># service nfs stop
+# service rpcbind stop
+</code></pre><h5 id="4、设置NFS服务器的自动启动状态"><a href="#4、设置NFS服务器的自动启动状态" class="headerlink" title="4、设置NFS服务器的自动启动状态"></a>4、设置NFS服务器的自动启动状态</h5><p>对于实际的应用系统，每次启动LINUX系统后都手工启动nfs服务器是不现实的，需要设置系统在指定的运行级别自动启动portmap(rpcbind)和nfs服务。</p>
+<pre><code># chkconfig --list rpcbind
+# chkconfig --list nfs
+</code></pre><p>设置portmap和nfs服务在系统运行级别3和5自动启动。</p>
+<pre><code># chkconfig --level 35 portmap on
+# chkconfig --level 35 nfs on
+</code></pre><h4 id="七、实例"><a href="#七、实例" class="headerlink" title="七、实例"></a>七、实例</h4><h5 id="1、将NFS-Server-的-home-david-共享给192-168-1-0-24网段，权限读写。"><a href="#1、将NFS-Server-的-home-david-共享给192-168-1-0-24网段，权限读写。" class="headerlink" title="1、将NFS Server 的/home/david/ 共享给192.168.1.0/24网段，权限读写。"></a>1、将NFS Server 的/home/david/ 共享给192.168.1.0/24网段，权限读写。</h5><p>服务器端文件详细如下：<br><img src="/photos/nfs/nfs_01.jpg" alt="Alt text"></p>
+<pre><code># vi /etc/exports
+</code></pre><pre><code>/home/david 192.168.1.0/24(rw)
+</code></pre><h5 id="2、重启portmap-和nfs-服务"><a href="#2、重启portmap-和nfs-服务" class="headerlink" title="2、重启portmap 和nfs 服务"></a>2、重启portmap 和nfs 服务</h5><pre><code># service portmap restart
+# service nfs restart
+# exportfs
+</code></pre><p><img src="/photos/nfs/nfs_02.jpg" alt="Alt text"></p>
+<h5 id="3、服务器端使用showmount命令查询NFS的共享状态"><a href="#3、服务器端使用showmount命令查询NFS的共享状态" class="headerlink" title="3、服务器端使用showmount命令查询NFS的共享状态"></a>3、服务器端使用showmount命令查询NFS的共享状态</h5><pre><code># showmount -e　　　　
+//默认查看自己共享的服务，前提是要DNS能解析自己，不然容易报错
+</code></pre><p><img src="/photos/nfs/nfs_03.jpg" alt="Alt text"></p>
+<pre><code># showmount -a　　　　//显示已经与客户端连接上的目录信息
+</code></pre><p><img src="/photos/nfs/nfs_04.jpg" alt="Alt text"></p>
+<h5 id="4、客户端使用showmount命令查询NFS的共享状态"><a href="#4、客户端使用showmount命令查询NFS的共享状态" class="headerlink" title="4、客户端使用showmount命令查询NFS的共享状态"></a>4、客户端使用showmount命令查询NFS的共享状态</h5><pre><code># showmount -e NFS服务器IP
+</code></pre><p><img src="/photos/nfs/nfs_05.jpg" alt="Alt text"></p>
+<h5 id="5、客户端挂载NFS服务器中的共享目录"><a href="#5、客户端挂载NFS服务器中的共享目录" class="headerlink" title="5、客户端挂载NFS服务器中的共享目录"></a>5、客户端挂载NFS服务器中的共享目录</h5><p><code>命令格式</code></p>
+<pre><code># mount NFS服务器IP:共享目录 本地挂载点目录
+</code></pre><pre><code># mount 192.168.1.108:/home/david/ /tmp/david/
+
+# mount |grep nfs
+</code></pre><p><img src="/photos/nfs/nfs_06.jpg" alt="Alt text"></p>
+<p>挂载成功。</p>
+<p>查看文件是否和服务器端一致。<br><img src="/photos/nfs/nfs_07.jpg" alt="Alt text"></p>
+<h5 id="6、NFS的共享权限和访问控制"><a href="#6、NFS的共享权限和访问控制" class="headerlink" title="6、NFS的共享权限和访问控制"></a>6、NFS的共享权限和访问控制</h5><p>现在我们在/tmp/david/ 里面建立一个文件，看看权限是什么</p>
+<pre><code># touch 20130103
+</code></pre><p><img src="/photos/nfs/nfs_08.jpg" alt="Alt text"></p>
+<p>这里出现Permission denied，是因为NFS 服务器端共享的目录本身的写权限没有开放给其他用户，在服务器端打开该权限。</p>
+<pre><code># chmod 777 -R /home/david/
+</code></pre><p><img src="/photos/nfs/nfs_09.jpg" alt="Alt text"></p>
+<p>再次在客户端/tmp/david/ 里面建立一个文件<br><img src="/photos/nfs/nfs_10.jpg" alt="Alt text"></p>
+<p>我用root 用户建立的文件，变成了nfsnobody 用户。</p>
+<p>NFS有很多默认的参数，打开/var/lib/nfs/etab 查看分享出来的/home/david/ 完整权限设定值。</p>
+<pre><code># cat /var/lib/nfs/etab
+</code></pre><p><img src="/photos/nfs/nfs_11.jpg" alt="Alt text"></p>
+<p>默认就有sync，wdelay，hide 等等，no_root_squash 是让root保持权限，root_squash 是把root映射成nobody，no_all_squash 不让所有用户保持在挂载目录中的权限。所以，root建立的文件所有者是nfsnobody。</p>
+<p>下面我们使用普通用户挂载、写入文件测试。</p>
+<pre><code># su - david
+
+$ cd /tmp/david/
+
+$ touch 2013david
+</code></pre><p><img src="/photos/nfs/nfs_12.jpg" alt="Alt text"></p>
+<p>普通用户写入文件时就是自己的名字，这也就保证了服务器的安全性。<br><code>关于权限的分析</code></p>
+<h6 id="1-客户端连接时候，对普通用户的检查"><a href="#1-客户端连接时候，对普通用户的检查" class="headerlink" title="1. 客户端连接时候，对普通用户的检查"></a>1. 客户端连接时候，对普通用户的检查</h6><p>　　　　a. 如果明确设定了普通用户被压缩的身份，那么此时客户端用户的身份转换为指定用户；</p>
+<p>　　　　b. 如果NFS server上面有同名用户，那么此时客户端登录账户的身份转换为NFS server上面的同名用户；</p>
+<p>　　　　c. 如果没有明确指定，也没有同名用户，那么此时 用户身份被压缩成nfsnobody；</p>
+<h6 id="2-客户端连接的时候，对root的检查"><a href="#2-客户端连接的时候，对root的检查" class="headerlink" title="2. 客户端连接的时候，对root的检查"></a>2. 客户端连接的时候，对root的检查</h6><p>　　　　a. 如果设置no_root_squash，那么此时root用户的身份被压缩为NFS server上面的root；</p>
+<p>　　　　b. 如果设置了all_squash、anonuid、anongid，此时root 身份被压缩为指定用户；</p>
+<p>　　　　c. 如果没有明确指定，此时root用户被压缩为nfsnobody；</p>
+<p>　　　　d. 如果同时指定no_root_squash与all_squash 用户将被压缩为 nfsnobody，如果设置了anonuid、anongid将被压缩到所指定的用户与组；</p>
+<h5 id="7、卸载已挂载的NFS共享目录"><a href="#7、卸载已挂载的NFS共享目录" class="headerlink" title="7、卸载已挂载的NFS共享目录"></a>7、卸载已挂载的NFS共享目录</h5><pre><code># umount /tmp/david/
+</code></pre><h4 id="八、启动自动挂载nfs文件系统"><a href="#八、启动自动挂载nfs文件系统" class="headerlink" title="八、启动自动挂载nfs文件系统"></a>八、启动自动挂载nfs文件系统</h4><p>格式：</p>
+<pre><code>&lt;server&gt;:&lt;/remote/export&gt; &lt;/local/directory&gt; nfs &lt; options&gt; 0 0
+</code></pre><pre><code># vi /etc/fstab
+</code></pre><p><img src="/photos/nfs/nfs_13.jpg" alt="Alt text"></p>
+<p>保存退出，重启系统。</p>
+<p>查看/home/david 有没有自动挂载。<br><img src="/photos/nfs/nfs_14.jpg" alt="Alt text"></p>
+<p>自动挂载成功。</p>
+<h4 id="九、相关命令"><a href="#九、相关命令" class="headerlink" title="九、相关命令"></a>九、相关命令</h4><p><code>1、exportfs</code></p>
+<p>如果我们在启动了NFS之后又修改了/etc/exports，是不是还要重新启动nfs呢？这个时候我们就可以用exportfs 命令来使改动立刻生效，该命令格式如下：</p>
+<p>　　# exportfs [-aruv]</p>
+<p>　　-a 全部挂载或卸载 /etc/exports中的内容 </p>
+<p>　　-r 重新读取/etc/exports 中的信息 ，并同步更新/etc/exports、/var/lib/nfs/xtab</p>
+<p>　　-u 卸载单一目录（和-a一起使用为卸载所有/etc/exports文件中的目录）</p>
+<p>　　-v 在export的时候，将详细的信息输出到屏幕上。 </p>
+<p>具体例子： </p>
+<p>　　# exportfs -au 卸载所有共享目录</p>
+<p>　　# exportfs -rv 重新共享所有目录并输出详细信息</p>
+<p><code>2、nfsstat</code></p>
+<p>查看NFS的运行状态，对于调整NFS的运行有很大帮助。</p>
+<p><code>3、rpcinfo</code></p>
+<p>查看rpc执行信息，可以用于检测rpc运行情况的工具，利用rpcinfo -p 可以查看出RPC开启的端口所提供的程序有哪些。</p>
+<p><code>4、showmount</code></p>
+<p>　　-a 显示已经于客户端连接上的目录信息</p>
+<p>　　-e IP或者hostname 显示此IP地址分享出来的目录</p>
+<p><code>5、netstat</code></p>
+<p>可以查看出nfs服务开启的端口，其中nfs 开启的是2049，portmap 开启的是111，其余则是rpc开启的。</p>
+<p>最后注意两点，虽然通过权限设置可以让普通用户访问，但是挂载的时候默认情况下只有root可以去挂载，普通用户可以执行sudo。</p>
+<p>NFS server 关机的时候一点要确保NFS服务关闭，没有客户端处于连接状态！通过showmount -a 可以查看，如果有的话用kill killall pkill 来结束，（-9 强制结束）</p>
+<h6 id="CentOS-6-3下Samba服务器的安装与配置"><a href="#CentOS-6-3下Samba服务器的安装与配置" class="headerlink" title="CentOS 6.3下Samba服务器的安装与配置"></a>CentOS 6.3下Samba服务器的安装与配置</h6><p><a href="http://www.cnblogs.com/mchina/archive/2012/12/18/2816717.html" target="_blank" rel="external">http://www.cnblogs.com/mchina/archive/2012/12/18/2816717.html</a></p>
+
       
 
       
@@ -289,24 +409,13 @@ if fancybox
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo代码高亮</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nfs</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -356,7 +465,7 @@ if fancybox
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2017/01/15/hexo代码高亮和自定义/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2016/11/15/NFS安装配置/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,18 +479,18 @@ if fancybox
   
 <nav id="article-nav">
   
-    <a href="/2017/11/15/hexo同步到github/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/08/test/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo同步到github
+          test
         
       </div>
     </a>
   
   
-    <a href="/2017/01/14/hexo配置注意的地方/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo发布文章注意</div>
+    <a href="/2016/11/15/hexo同步到github/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo同步到github</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -395,7 +504,7 @@ if fancybox
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hexo代码高亮和自定义" data-title="hexo代码高亮和自定义" data-url="http://139.129.18.59/2017/01/15/hexo代码高亮和自定义/"></div>
+	<div class="ds-thread" data-thread-key="NFS安装配置" data-title="NFS安装配置" data-url="http://139.129.18.59/2016/11/15/NFS安装配置/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -478,7 +587,7 @@ if fancybox
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索文章</a></li>
       
         
       
@@ -505,7 +614,7 @@ if fancybox
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo代码高亮</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,15 +622,15 @@ if fancybox
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hexo自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo配置</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -572,7 +681,7 @@ if fancybox
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家i</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿一枚&lt;br&gt;专注于三端开发，着重于后台&lt;br&gt;目前打算慢慢将以前笔记整理成博客&lt;br&gt;感谢关注！</div>
   	  	
     	</section>
     

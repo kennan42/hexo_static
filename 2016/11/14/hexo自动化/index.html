@@ -30,7 +30,7 @@
 安装插件 
 
  $ npm install hexo-deployer-git --save">
-<meta property="og:updated_time" content="2017-03-05T14:22:06.747Z">
+<meta property="og:updated_time" content="2017-03-08T08:10:22.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo部署和自动化发布">
 <meta name="twitter:description" content="这里安装hexo过程省略，参考其他文章。这里主要说下如何利用git自动化发布：
@@ -46,7 +46,7 @@
     <link rel="alternative" href="/atom.xml" title="Ken of Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
   <style type="text/css">
@@ -92,12 +92,14 @@
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/archives">所有文章</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索文章</a>
     			
             
     			
@@ -146,6 +148,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -161,12 +165,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives">所有文章</a></li>
 		        
 				</ul>
 			</nav>
@@ -314,24 +320,13 @@ $ sh hexo_git_deplay.sh
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hexo自动化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -395,18 +390,18 @@ $ sh hexo_git_deplay.sh
   
 <nav id="article-nav">
   
-    <a href="/2017/01/14/hexo配置注意的地方/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/14/hexo代码高亮和自定义/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo发布文章注意
+          hexo代码高亮和自定义
         
       </div>
     </a>
   
   
-    <a href="/2016/10/14/markdown使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown的使用方法</div>
+    <a href="/2016/11/14/hexo配置注意的地方/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo发布文章注意</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -503,7 +498,7 @@ $ sh hexo_git_deplay.sh
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索文章</a></li>
       
         
       
@@ -530,7 +525,7 @@ $ sh hexo_git_deplay.sh
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo代码高亮</a>
+                <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,15 +533,15 @@ $ sh hexo_git_deplay.sh
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hexo自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo配置</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -597,7 +592,7 @@ $ sh hexo_git_deplay.sh
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家i</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿一枚&lt;br&gt;专注于三端开发，着重于后台&lt;br&gt;目前打算慢慢将以前笔记整理成博客&lt;br&gt;感谢关注！</div>
   	  	
     	</section>
     

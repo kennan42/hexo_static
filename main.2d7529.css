@@ -1743,7 +1743,7 @@ to {
 .article-entry p {
 	margin-top:10px
 }
-.article-entry li code,.article-entry p code {
+/*.article-entry li code,.article-entry p code {
 	padding:1px 3px;
 	margin:0 3px;
 	background:#ddd;
@@ -1751,7 +1751,7 @@ to {
 	font-family:Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
 	word-wrap:break-word;
 	font-size:14px
-}
+}*/
 
 .article-entry li code {
 	padding:1px 3px;
@@ -1761,6 +1761,16 @@ to {
 	font-family:Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
 	word-wrap:break-word;
 	font-size:14px
+}
+
+.article-entry p code {
+	padding:1px 3px;
+	margin:0 3px;
+	background:rgba(249, 242, 244, 1);
+	font-family:Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+	word-wrap:break-word;
+	font-size:14px;
+	color:rgba(199,37,78,1);
 }
 
 .article-entry blockquote {
