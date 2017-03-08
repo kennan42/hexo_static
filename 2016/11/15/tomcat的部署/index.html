@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://139.129.18.59">
-  <title>Archives: 2017 | Ken of Blog</title>
+  <title>tomcat的部署 | Ken of Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ken of Blog">
-<meta property="og:url" content="http://139.129.18.59/archives/2017/index.html">
+  <meta name="description" content="安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat的部署">
+<meta property="og:url" content="http://139.129.18.59/2016/11/15/tomcat的部署/index.html">
 <meta property="og:site_name" content="Ken of Blog">
+<meta property="og:description" content="安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：">
+<meta property="og:updated_time" content="2017-03-08T10:50:00.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ken of Blog">
+<meta name="twitter:title" content="tomcat的部署">
+<meta name="twitter:description" content="安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：">
   
     <link rel="alternative" href="/atom.xml" title="Ken of Blog" type="application/atom+xml">
   
@@ -159,60 +163,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-tomcat的部署" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/08/test/" class="archive-article-date">
-  	<time datetime="2017-03-08T06:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/08/test/">test</a>
+    <h1 class="article-title" itemprop="name">
+      tomcat的部署
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/11/15/tomcat的部署/" class="archive-article-date">
+  	<time datetime="2016-11-15T05:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：<br><a id="more"></a><br><a href="http://help.aliyun.com/knowledge_detail/6507861.html?spm=5176.7114037.1996646101.1.FD0keL&amp;pos=1" target="_blank" rel="external">http://help.aliyun.com/knowledge_detail/6507861.html?spm=5176.7114037.1996646101.1.FD0keL&amp;pos=1</a></p>
+<p>本文将tomcat安装到了/usr/local/jdk1.8.0_60目录下，如果安装到了其他目录，请替换掉本文的JDK目录。</p>
+<h5 id="1-下载tomcat："><a href="#1-下载tomcat：" class="headerlink" title="1. 下载tomcat："></a>1. 下载tomcat：</h5><pre><code>#wget http://apache.fayea.com/tomcat/tomcat-7/v7.0.64/bin/apache-tomcat-7.0.64.tar.gz
+</code></pre><p>如果下载404，重新找路径<br>apache.fayea.com/tomcat/tomcat-7/v7.0.69/bin/apache-tomcat-7.0.69.tar.gz</p>
+<h5 id="2-将tomcat放置到-usr-local-目录下"><a href="#2-将tomcat放置到-usr-local-目录下" class="headerlink" title="2. 将tomcat放置到 /usr/local/ 目录下"></a>2. 将tomcat放置到 /usr/local/ 目录下</h5><pre><code>#mv apache-tomcat-7.0.64.tar.gz /usr/local/
+</code></pre><h5 id="3-解压缩："><a href="#3-解压缩：" class="headerlink" title="3. 解压缩："></a>3. 解压缩：</h5><pre><code>tar -xvzf /usr/local/apache-tomcat-7.0.64.tar.gz
+</code></pre><h5 id="4-设置tomcat开机自启动"><a href="#4-设置tomcat开机自启动" class="headerlink" title="4. 设置tomcat开机自启动"></a>4. 设置tomcat开机自启动</h5><p>编辑/usr/local/apache-tomcat-7.0.64.tar.gz/bin/startup.sh</p>
+<pre><code># vi /usr/local/apache-tomcat-7.0.64/bin/startup.sh
+加入如下行：
+#chkconfig: 2345 80 90
+#description:tomcat auto start
+#processname: tomcat
+</code></pre><p>编辑/usr/local/apache-tomcat-7.0.64/bin/catalina.sh</p>
+<pre><code># vi /usr/local/apache-tomcat-7.0.64/bin/catalina.sh
+</code></pre><p>搜索export关键字，加入如下行：</p>
+<pre><code>export CATALINA_BASE=/usr/local/apache-tomcat-7.0.64
+export CATALINA_HOME=/usr/local/apache-tomcat-7.0.64
+export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
+</code></pre><p>将tomcat加入开机自启动</p>
+<pre><code># vi /etc/rc.d/rc.local
+</code></pre><p>加入如下内容：</p>
+<pre><code>export JAVA_HOME=/usr/local/jdk1.8.0_60
+/usr/local/apache-tomcat-7.0.64/bin/startup.sh start
+</code></pre><p>执行</p>
+<pre><code># /usr/local/apache-tomcat-7.0.64/bin/startup.sh 启动tomcat
+</code></pre><p> 打开浏览器测试：<br>tomcat默认监听8080端口，如果要修改成为80端口，按如下步骤修改：</p>
+<pre><code># vi /usr/local/apache-tomcat-7.0.64/conf/server.xml
+</code></pre><p>找到</p>
+<pre><code>&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;
+               connectionTimeout=&quot;20000&quot;
+               redirectPort=&quot;8443&quot; /&gt;
+ &lt;Connector executor=&quot;tomcatThreadPool&quot;
+               port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;
+               connectionTimeout=&quot;20000&quot;
+               redirectPort=&quot;8443&quot; /&gt;
+</code></pre><p>修改为：</p>
+<pre><code>&lt;Connector port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot;
+               connectionTimeout=&quot;20000&quot;
+               redirectPort=&quot;8443&quot; /&gt;
+ &lt;Connector executor=&quot;tomcatThreadPool&quot;
+               port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot;
+               connectionTimeout=&quot;20000&quot;
+               redirectPort=&quot;8443&quot; /&gt;
+</code></pre><p>重启tomcat生效</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2016/11/15/tomcat的部署/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/11/15/NFS安装配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NFS安装配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="tomcat的部署" data-title="tomcat的部署" data-url="http://139.129.18.59/2016/11/15/tomcat的部署/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -235,8 +394,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -319,7 +478,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
               </li>
             
             <div class="clearfix"></div>
