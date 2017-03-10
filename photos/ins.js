@@ -118,12 +118,13 @@
         for (var i = 0, len = data.link.length; i < len; i++) {
           var minSrc = 'http://ken-blog.image.alimmdn.com/test/' + data.link[i] + '@200w';
           var src = 'http://ken-blog.image.alimmdn.com/test/' + data.link[i];
+          var dataSize =data.dataSize[i];
           var type = data.type[i];
           //var target = src + (type === 'video' ? '.mp4' : '.jpg');
           //src += '.jpg';
 
           liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
-                <a href="' + src + '" itemprop="contentUrl" data-size="640x640" data-type="' + type + '" data-target="' + src + '">\
+                <a href="' + src + '" itemprop="contentUrl" data-size="'+dataSize+'" data-type="' + type + '" data-target="' + src + '">\
                   <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
                 </a>\
                 <figcaption style="display:none" itemprop="caption description">' + data.text[i] + '</figcaption>\

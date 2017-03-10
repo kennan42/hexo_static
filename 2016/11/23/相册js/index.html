@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://139.129.18.59">
-  <title>Tag: 随笔 | Ken of Blog</title>
+  <title>PhotoSwipe中文API | Ken of Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ken of Blog">
-<meta property="og:url" content="http://139.129.18.59/tags/随笔/index.html">
+  <meta name="description" content="PhotoSwipe 是专为移动触摸设备设计的相册/画廊.兼容所有iPhone、iPad、黑莓6+,以及桌面浏览器.底层实现基于HTML/CSS/JavaScript,是一款免费开源的相册产品">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PhotoSwipe中文API">
+<meta property="og:url" content="http://139.129.18.59/2016/11/23/相册js/index.html">
 <meta property="og:site_name" content="Ken of Blog">
+<meta property="og:description" content="PhotoSwipe 是专为移动触摸设备设计的相册/画廊.兼容所有iPhone、iPad、黑莓6+,以及桌面浏览器.底层实现基于HTML/CSS/JavaScript,是一款免费开源的相册产品">
+<meta property="og:updated_time" content="2017-03-10T08:04:53.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ken of Blog">
+<meta name="twitter:title" content="PhotoSwipe中文API">
+<meta name="twitter:description" content="PhotoSwipe 是专为移动触摸设备设计的相册/画廊.兼容所有iPhone、iPad、黑莓6+,以及桌面浏览器.底层实现基于HTML/CSS/JavaScript,是一款免费开源的相册产品">
   
     <link rel="alternative" href="/atom.xml" title="Ken of Blog" type="application/atom+xml">
   
@@ -165,60 +169,677 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-相册js" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/10/World/" class="archive-article-date">
-  	<time datetime="2016-09-10T04:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/10/World/">博客的Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      PhotoSwipe中文API
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/11/23/相册js/" class="archive-article-date">
+  	<time datetime="2016-11-23T04:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PhotoSwipe 是专为移动触摸设备设计的相册/画廊.兼容所有iPhone、iPad、黑莓6+,以及桌面浏览器.底层实现基于HTML/CSS/JavaScript,是一款免费开源的相册产品<br><a id="more"></a></p>
+<h4 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h4><p>开始之前你应该知道的第一件事:</p>
+<ul>
+<li>PhotoSwipe不是一个简单的jQuery插件，至少需要基本的JavaScript知识来安装。</li>
+<li>PhotoSwipe需要预先定义的图片尺寸（<a href="http://photoswipe.com/documentation/faq.html#image-size" target="_blank" rel="external">更多相关信息</a>）。</li>
+<li>如果您在非响应网站上使用PhotoSwipe，则控件将在移动设备上进行缩放（整个页面缩放）。因此，您需要实现自定义控件（例如右上角的单个大关闭按钮）。</li>
+<li>文档中的所有代码都是纯Vanilla JS，并支持IE 8及更高版本。如果您的网站或应用程序使用一些JavaScript框架（如jQuery或MooTools）或您不需要支持旧的浏览器 - 随意简化代码。</li>
+<li>避免为移动设备投放大图片（大于2000x1500像素），因为它们会大大降低动画效果，并可能导致崩溃（尤其是在iOS Safari上）。可能的解决方案：<a href="http://photoswipe.com/documentation/responsive-images.html" target="_blank" rel="external">提供响应图像</a>，或在单独的页面上打开图像，或使用支持图像平铺的库（如<a href="http://leafletjs.com/" target="_blank" rel="external">传单</a>）（<a href="http://photoswipe.com/documentation/faq.html#mobile-crash" target="_blank" rel="external">更多在常见问题</a>）。<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><h5 id="步骤1：包括JS和CSS文件"><a href="#步骤1：包括JS和CSS文件" class="headerlink" title="步骤1：包括JS和CSS文件"></a>步骤1：包括JS和CSS文件</h5>你可以找到他们<a href="http://photoswipe.com/documentation/faq.html#mobile-crash" target="_blank" rel="external">DIST</a> /文件夹的<a href="https://github.com/dimsemenov/PhotoSwipe/tree/master/dist" target="_blank" rel="external">GitHub</a>存储库。Sass和未编译的JS文件位于文件夹<a href="https://github.com/dimsemenov/PhotoSwipe" target="_blank" rel="external">src</a>/中。如果您计划修改现有样式，我建议使用Sass，因为代码是结构化的和注释的。</li>
+</ul>
+<pre><code>&lt;!-- Core CSS file --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/photoswipe.css&quot;&gt; 
+
+&lt;!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+     In the folder of skin CSS file there are also:
+     - .png and .svg icons sprite, 
+     - preloader.gif (for browsers that do not support CSS animations) --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/default-skin/default-skin.css&quot;&gt; 
+
+&lt;!-- Core JS file --&gt;
+&lt;script src=&quot;path/to/photoswipe.min.js&quot;&gt;&lt;/script&gt; 
+
+&lt;!-- UI JS file --&gt;
+&lt;script src=&quot;path/to/photoswipe-ui-default.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>不管你如何和在哪里将包括JS和CSS文件。代码只有在您调用时才会执行new PhotoSwipe()。所以，如果你不需要PhotoSwipe最初打开，随意推迟文件加载。<br>PhotoSwipe还支持AMD加载器（如RequireJS）和CommonJS，使用它们像这样：</p>
+<pre><code>require([ 
+        &#39;path/to/photoswipe.js&#39;, 
+        &#39;path/to/photoswipe-ui-default.js&#39; 
+    ], function( PhotoSwipe, PhotoSwipeUI_Default ) {
+
+    //      var gallery = new PhotoSwipe( someElement, PhotoSwipeUI_Default ...
+    //      gallery.init() 
+    //      ...
+
+});
+</code></pre><p>此外，您可以通过Bower（bower install photoswipe）或NPM（npm install photoswipe）安装它。</p>
+<h5 id="步骤2：向DOM中添加PhotoSwipe（-pswp）元素"><a href="#步骤2：向DOM中添加PhotoSwipe（-pswp）元素" class="headerlink" title="步骤2：向DOM中添加PhotoSwipe（.pswp）元素"></a>步骤2：向DOM中添加PhotoSwipe（.pswp）元素</h5><p>您可以通过JS动态添加HTML代码（直接在初始化之前），或者在页面中初始化（像在演示页面上完成）。这个代码可以追加到任何地方，但最好是在关闭之前。您可以在多个库中重复使用它（只要使用相同的UI类）。</p>
+<pre><code>&lt;!-- Root element of PhotoSwipe. Must have class pswp. --&gt;
+&lt;div class=&quot;pswp&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+
+    &lt;!-- Background of PhotoSwipe. 
+         It&#39;s a separate element as animating opacity is faster than rgba(). --&gt;
+    &lt;div class=&quot;pswp__bg&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- Slides wrapper with overflow:hidden. --&gt;
+    &lt;div class=&quot;pswp__scroll-wrap&quot;&gt;
+
+        &lt;!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don&#39;t modify these 3 pswp__item elements, data is added later on. --&gt;
+        &lt;div class=&quot;pswp__container&quot;&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. --&gt;
+        &lt;div class=&quot;pswp__ui pswp__ui--hidden&quot;&gt;
+
+            &lt;div class=&quot;pswp__top-bar&quot;&gt;
+
+                &lt;!--  Controls are self-explanatory. Order can be changed. --&gt;
+
+                &lt;div class=&quot;pswp__counter&quot;&gt;&lt;/div&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--close&quot; title=&quot;Close (Esc)&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--share&quot; title=&quot;Share&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--fs&quot; title=&quot;Toggle fullscreen&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--zoom&quot; title=&quot;Zoom in/out&quot;&gt;&lt;/button&gt;
+
+                &lt;!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR --&gt;
+                &lt;!-- element will get class pswp__preloader--active when preloader is running --&gt;
+                &lt;div class=&quot;pswp__preloader&quot;&gt;
+                    &lt;div class=&quot;pswp__preloader__icn&quot;&gt;
+                      &lt;div class=&quot;pswp__preloader__cut&quot;&gt;
+                        &lt;div class=&quot;pswp__preloader__donut&quot;&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&quot;&gt;
+                &lt;div class=&quot;pswp__share-tooltip&quot;&gt;&lt;/div&gt; 
+            &lt;/div&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--arrow--left&quot; title=&quot;Previous (arrow left)&quot;&gt;
+            &lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--arrow--right&quot; title=&quot;Next (arrow right)&quot;&gt;
+            &lt;/button&gt;
+
+            &lt;div class=&quot;pswp__caption&quot;&gt;
+                &lt;div class=&quot;pswp__caption__center&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre><p><code>pswp__bg</code>，<code>pswp__scroll-wrap</code>，<code>pswp__container</code>和<code>pswp__item</code>元件的顺序不应被改变。<br>你可能会问，为什么PhotoSwipe不通过JS自动添加这个代码，原因很简单 - 只是为了保存文件大小，万一你需要一些修改布局。</p>
+<h5 id="步骤3：初始化"><a href="#步骤3：初始化" class="headerlink" title="步骤3：初始化"></a>步骤3：初始化</h5><p>执行<code>PhotoSwipe</code>构造函数。它接受4个参数：<br>1、<code>.pswp</code>元素（必须添加到DOM）。<br>2、PhotoSwipe UI类。如果你包含默认<code>photoswipe-ui-default.js</code>，类将会<code>PhotoSwipeUI_Default</code>。可以false。<br>3、具有对象的数组（幻灯片）。<br>4、<a href="http://photoswipe.com/documentation/options.html" target="_blank" rel="external">选项</a>。</p>
+<pre><code>var pswpElement = document.querySelectorAll(&#39;.pswp&#39;)[0];
+
+// build items array
+var items = [
+    {
+        src: &#39;https://placekitten.com/600/400&#39;,
+        w: 600,
+        h: 400
+    },
+    {
+        src: &#39;https://placekitten.com/1200/900&#39;,
+        w: 1200,
+        h: 900
+    }
+];
+
+// define options (if needed)
+var options = {
+    // optionName: &#39;option value&#39;
+    // for example:
+    index: 0 // start at first slide
+};
+
+// Initializes and opens PhotoSwipe
+var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+gallery.init();
+</code></pre><p>最后你应该得到这样的东西：<br><code>HTML代码</code>:</p>
+<pre><code>&lt;button id=&quot;btn&quot;&gt;Open PhotoSwipe&lt;/button&gt;
+
+&lt;!-- Root element of PhotoSwipe. Must have class pswp. --&gt;
+&lt;div class=&quot;pswp&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+
+    &lt;!-- Background of PhotoSwipe. 
+         It&#39;s a separate element, as animating opacity is faster than rgba(). --&gt;
+    &lt;div class=&quot;pswp__bg&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- Slides wrapper with overflow:hidden. --&gt;
+    &lt;div class=&quot;pswp__scroll-wrap&quot;&gt;
+
+        &lt;!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. --&gt;
+        &lt;div class=&quot;pswp__container&quot;&gt;
+            &lt;!-- don&#39;t modify these 3 pswp__item elements, data is added later on --&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. --&gt;
+        &lt;div class=&quot;pswp__ui pswp__ui--hidden&quot;&gt;
+
+            &lt;div class=&quot;pswp__top-bar&quot;&gt;
+
+                &lt;!--  Controls are self-explanatory. Order can be changed. --&gt;
+
+                &lt;div class=&quot;pswp__counter&quot;&gt;&lt;/div&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--close&quot; title=&quot;Close (Esc)&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--share&quot; title=&quot;Share&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--fs&quot; title=&quot;Toggle fullscreen&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--zoom&quot; title=&quot;Zoom in/out&quot;&gt;&lt;/button&gt;
+
+                &lt;!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR --&gt;
+                &lt;!-- element will get class pswp__preloader--active when preloader is running --&gt;
+                &lt;div class=&quot;pswp__preloader&quot;&gt;
+                    &lt;div class=&quot;pswp__preloader__icn&quot;&gt;
+                      &lt;div class=&quot;pswp__preloader__cut&quot;&gt;
+                        &lt;div class=&quot;pswp__preloader__donut&quot;&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&quot;&gt;
+                &lt;div class=&quot;pswp__share-tooltip&quot;&gt;&lt;/div&gt; 
+            &lt;/div&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--arrow--left&quot; title=&quot;Previous (arrow left)&quot;&gt;
+            &lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--arrow--right&quot; title=&quot;Next (arrow right)&quot;&gt;
+            &lt;/button&gt;
+
+            &lt;div class=&quot;pswp__caption&quot;&gt;
+                &lt;div class=&quot;pswp__caption__center&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre><p><code>JS代码</code>：</p>
+<pre><code>var openPhotoSwipe = function() {
+    var pswpElement = document.querySelectorAll(&#39;.pswp&#39;)[0];
+
+    // build items array
+    var items = [
+        {
+            src: &#39;https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg&#39;,
+            w: 964,
+            h: 1024
+        },
+        {
+            src: &#39;https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg&#39;,
+            w: 1024,
+            h: 683
+        }
+    ];
+
+    // define options (if needed)
+    var options = {
+             // history &amp; focus options are disabled on CodePen        
+          history: false,
+          focus: false,
+
+        showAnimationDuration: 0,
+        hideAnimationDuration: 0
+
+    };
+
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+};
+
+openPhotoSwipe();
+
+document.getElementById(&#39;btn&#39;).onclick = openPhotoSwipe;
+</code></pre><h4 id="创建幻灯片对象数组"><a href="#创建幻灯片对象数组" class="headerlink" title="创建幻灯片对象数组"></a>创建幻灯片对象数组</h4><p>数组中的每个对象都应包含有关幻灯片的数据，它可以是您想要在PhotoSwipe中显示的任何内容 - 图片路径，字幕字符串，共享数量，评论等。<br>默认情况下，PhotoSwipe仅使用5个属性：（src路径到图像），w（图像宽度），h（图像高度），msrc（小图像占位符的路径，大图像将被加载在顶部），html（自定义HTML，更多关于它）。<br>在导航期间，PhotoSwipe会向此对象添加自己的属性（如minZoom或loaded）</p>
+<pre><code>var slides = [
+
+    // slide 1
+    {
+
+        src: &#39;path/to/image1.jpg&#39;, // path to image
+        w: 1024, // image width
+        h: 768, // image height
+
+        msrc: &#39;path/to/small-image.jpg&#39;, // small image placeholder,
+                        // main (large) image loads on top of it,
+                        // if you skip this parameter - grey rectangle will be displayed,
+                        // try to define this property only when small image was loaded before
+
+
+
+        title: &#39;Image Caption&#39;  // used by Default PhotoSwipe UI
+                                // if you skip it, there won&#39;t be any caption
+
+
+        // You may add more properties here and use them.
+        // For example, demo gallery uses &quot;author&quot; property, which is used in the caption.
+        // author: &#39;John Doe&#39;
+
+    },
+
+    // slide 2
+    {
+        src: &#39;path/to/image2.jpg&#39;, 
+        w: 600, 
+        h: 600
+
+        // etc.
+    }
+
+    // etc.
+
+];
+</code></pre><p>您可以在PhotoSwipe读取它们之前直接动态定义幻灯片对象属性，使用gettingData事件（更多信息在文档的API部分）。例如，该技术可以用于为不同的屏幕尺寸提供不同的图像。</p>
+<h4 id="如何从链接列表构建幻灯片数组"><a href="#如何从链接列表构建幻灯片数组" class="headerlink" title="如何从链接列表构建幻灯片数组"></a>如何从链接列表构建幻灯片数组</h4><p>假设您有一个看起来像这样的链接/缩略图列表（关于图库标记的更多信息）：</p>
+<pre><code>&lt;div class=&quot;my-gallery&quot; itemscope itemtype=&quot;http://schema.org/ImageGallery&quot;&gt;
+
+    &lt;figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;http://schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;large-image.jpg&quot; itemprop=&quot;contentUrl&quot; data-size=&quot;600x400&quot;&gt;
+            &lt;img src=&quot;small-image.jpg&quot; itemprop=&quot;thumbnail&quot; alt=&quot;Image description&quot; /&gt;
+        &lt;/a&gt;
+        &lt;figcaption itemprop=&quot;caption description&quot;&gt;Image caption&lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+    &lt;figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;http://schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;large-image.jpg&quot; itemprop=&quot;contentUrl&quot; data-size=&quot;600x400&quot;&gt;
+            &lt;img src=&quot;small-image.jpg&quot; itemprop=&quot;thumbnail&quot; alt=&quot;Image description&quot; /&gt;
+        &lt;/a&gt;
+        &lt;figcaption itemprop=&quot;caption description&quot;&gt;Image caption&lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+
+&lt;/div&gt;
+</code></pre><p>…并且您想要点击缩略图以大图片打开PhotoSwipe（就像在演示页上完成的一样）。所有你需要做的是：<br>1、将点击事件绑定到链接/缩略图。<br>2、用户点击缩略图后，找到其索引。<br>3、从DOM元素创建幻灯片对象数组 - 循环遍历所有链接并检索href属性（大图片网址），data-size属性（其大小），src缩略图和标题内容。<br>PhotoSwipe真的不在乎你会怎么做。如果你使用jQuery或MooTools等框架，或者如果你不需要支持IE8，代码可以大大简化。<br>这里是纯IE的支持的vanilla JS实现：</p>
+<pre><code>var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+    // parse slide data (url, title, size ...) from DOM elements 
+    // (children of gallerySelector)
+    var parseThumbnailElements = function(el) {
+        var thumbElements = el.childNodes,
+            numNodes = thumbElements.length,
+            items = [],
+            figureEl,
+            linkEl,
+            size,
+            item;
+
+        for(var i = 0; i &lt; numNodes; i++) {
+
+            figureEl = thumbElements[i]; // &lt;figure&gt; element
+
+            // include only element nodes 
+            if(figureEl.nodeType !== 1) {
+                continue;
+            }
+
+            linkEl = figureEl.children[0]; // &lt;a&gt; element
+
+            size = linkEl.getAttribute(&#39;data-size&#39;).split(&#39;x&#39;);
+
+            // create slide object
+            item = {
+                src: linkEl.getAttribute(&#39;href&#39;),
+                w: parseInt(size[0], 10),
+                h: parseInt(size[1], 10)
+            };
+
+
+
+            if(figureEl.children.length &gt; 1) {
+                // &lt;figcaption&gt; content
+                item.title = figureEl.children[1].innerHTML; 
+            }
+
+            if(linkEl.children.length &gt; 0) {
+                // &lt;img&gt; thumbnail element, retrieving thumbnail url
+                item.msrc = linkEl.children[0].getAttribute(&#39;src&#39;);
+            } 
+
+            item.el = figureEl; // save link to element for getThumbBoundsFn
+            items.push(item);
+        }
+
+        return items;
+    };
+
+    // find nearest parent element
+    var closest = function closest(el, fn) {
+        return el &amp;&amp; ( fn(el) ? el : closest(el.parentNode, fn) );
+    };
+
+    // triggers when user clicks on thumbnail
+    var onThumbnailsClick = function(e) {
+        e = e || window.event;
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+        var eTarget = e.target || e.srcElement;
+
+        // find root element of slide
+        var clickedListItem = closest(eTarget, function(el) {
+            return (el.tagName &amp;&amp; el.tagName.toUpperCase() === &#39;FIGURE&#39;);
+        });
+
+        if(!clickedListItem) {
+            return;
+        }
+
+        // find index of clicked item by looping through all child nodes
+        // alternatively, you may define index via data- attribute
+        var clickedGallery = clickedListItem.parentNode,
+            childNodes = clickedListItem.parentNode.childNodes,
+            numChildNodes = childNodes.length,
+            nodeIndex = 0,
+            index;
+
+        for (var i = 0; i &lt; numChildNodes; i++) {
+            if(childNodes[i].nodeType !== 1) { 
+                continue; 
+            }
+
+            if(childNodes[i] === clickedListItem) {
+                index = nodeIndex;
+                break;
+            }
+            nodeIndex++;
+        }
+
+
+
+        if(index &gt;= 0) {
+            // open PhotoSwipe if valid index found
+            openPhotoSwipe( index, clickedGallery );
+        }
+        return false;
+    };
+
+    // parse picture index and gallery index from URL (#&amp;pid=1&amp;gid=2)
+    var photoswipeParseHash = function() {
+        var hash = window.location.hash.substring(1),
+        params = {};
+
+        if(hash.length &lt; 5) {
+            return params;
+        }
+
+        var vars = hash.split(&#39;&amp;&#39;);
+        for (var i = 0; i &lt; vars.length; i++) {
+            if(!vars[i]) {
+                continue;
+            }
+            var pair = vars[i].split(&#39;=&#39;);  
+            if(pair.length &lt; 2) {
+                continue;
+            }           
+            params[pair[0]] = pair[1];
+        }
+
+        if(params.gid) {
+            params.gid = parseInt(params.gid, 10);
+        }
+
+        return params;
+    };
+
+    var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+        var pswpElement = document.querySelectorAll(&#39;.pswp&#39;)[0],
+            gallery,
+            options,
+            items;
+
+        items = parseThumbnailElements(galleryElement);
+
+        // define options (if needed)
+        options = {
+
+            // define gallery index (for URL)
+            galleryUID: galleryElement.getAttribute(&#39;data-pswp-uid&#39;),
+
+            getThumbBoundsFn: function(index) {
+                // See Options -&gt; getThumbBoundsFn section of documentation for more info
+                var thumbnail = items[index].el.getElementsByTagName(&#39;img&#39;)[0], // find thumbnail
+                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                    rect = thumbnail.getBoundingClientRect(); 
+
+                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+            }
+
+        };
+
+        // PhotoSwipe opened from URL
+        if(fromURL) {
+            if(options.galleryPIDs) {
+                // parse real index when custom PIDs are used 
+                // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                for(var j = 0; j &lt; items.length; j++) {
+                    if(items[j].pid == index) {
+                        options.index = j;
+                        break;
+                    }
+                }
+            } else {
+                // in URL indexes start from 1
+                options.index = parseInt(index, 10) - 1;
+            }
+        } else {
+            options.index = parseInt(index, 10);
+        }
+
+        // exit if index not found
+        if( isNaN(options.index) ) {
+            return;
+        }
+
+        if(disableAnimation) {
+            options.showAnimationDuration = 0;
+        }
+
+        // Pass data to PhotoSwipe and initialize it
+        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    };
+
+    // loop through all gallery elements and bind events
+    var galleryElements = document.querySelectorAll( gallerySelector );
+
+    for(var i = 0, l = galleryElements.length; i &lt; l; i++) {
+        galleryElements[i].setAttribute(&#39;data-pswp-uid&#39;, i+1);
+        galleryElements[i].onclick = onThumbnailsClick;
+    }
+
+    // Parse URL and open gallery if it contains #&amp;pid=3&amp;gid=1
+    var hashData = photoswipeParseHash();
+    if(hashData.pid &amp;&amp; hashData.gid) {
+        openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+    }
+};
+
+// execute above function
+initPhotoSwipeFromDOM(&#39;.my-gallery&#39;);
+</code></pre><p>提示：您可以从CodePen下载示例以在本地播放（Edit on CodePen- &gt; Share- &gt; Export .zip）。<br>如果您使用的标记与此示例不同，则需要编辑功能parseThumbnailElements。<br>如果你没有纯粹的JavaScript经验，并且不知道如何解析DOM，请参考QuirksMode和MDN上的文档。<br>请注意，IE8不支持HTML5<figure>和<figcaption>元素，因此您需要在节中包含html5shiv<head>（cdnjs托管版本用于示例）：<br><!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]--></head></figcaption></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">相册</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PhotoSwipe</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2016/11/23/相册js/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/11/15/tomcat的部署/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">tomcat的部署</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="相册js" data-title="PhotoSwipe中文API" data-url="http://139.129.18.59/2016/11/23/相册js/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -241,9 +862,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
