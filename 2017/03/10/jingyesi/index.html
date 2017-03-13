@@ -6,42 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://139.129.18.59">
-  <title>hexo部署和自动化发布 | Ken of Blog</title>
+  <title>静夜思 | Ken of Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里安装hexo过程省略，参考其他文章。这里主要说下如何利用git自动化发布：
-
-安装git：sudo apt-get install git
-
-
-创建GitHub Repository ，在git上创建一个reop库，取名hexo_static
-安装插件 
-
- $ npm install hexo-deployer-git --save">
+  <meta name="description" content="喜欢一个人静静的听歌                 ——by ken">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo部署和自动化发布">
-<meta property="og:url" content="http://139.129.18.59/2016/11/14/hexo自动化/index.html">
+<meta property="og:title" content="静夜思">
+<meta property="og:url" content="http://139.129.18.59/2017/03/10/jingyesi/index.html">
 <meta property="og:site_name" content="Ken of Blog">
-<meta property="og:description" content="这里安装hexo过程省略，参考其他文章。这里主要说下如何利用git自动化发布：
-
-安装git：sudo apt-get install git
-
-
-创建GitHub Repository ，在git上创建一个reop库，取名hexo_static
-安装插件 
-
- $ npm install hexo-deployer-git --save">
-<meta property="og:updated_time" content="2017-03-08T08:10:22.412Z">
+<meta property="og:description" content="喜欢一个人静静的听歌                 ——by ken">
+<meta property="og:updated_time" content="2017-03-10T14:35:50.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo部署和自动化发布">
-<meta name="twitter:description" content="这里安装hexo过程省略，参考其他文章。这里主要说下如何利用git自动化发布：
-
-安装git：sudo apt-get install git
-
-
-创建GitHub Repository ，在git上创建一个reop库，取名hexo_static
-安装插件 
-
- $ npm install hexo-deployer-git --save">
+<meta name="twitter:title" content="静夜思">
+<meta name="twitter:description" content="喜欢一个人静静的听歌                 ——by ken">
   
     <link rel="alternative" href="/atom.xml" title="Ken of Blog" type="application/atom+xml">
   
@@ -195,100 +171,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo自动化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jingyesi" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo部署和自动化发布
+      静夜思
     </h1>
   
 
         
-        <a href="/2016/11/14/hexo自动化/" class="archive-article-date">
-  	<time datetime="2016-11-14T03:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-14</time>
+        <a href="/2017/03/10/jingyesi/" class="archive-article-date">
+  	<time datetime="2017-03-10T14:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 这里安装hexo过程省略，参考其他文章。这里主要说下如何利用git自动化发布：</p>
-<blockquote>
-<p>安装git：sudo apt-get install git</p>
-</blockquote>
-<ul>
-<li><strong>创建GitHub Repository</strong> ，在git上创建一个reop库，取名hexo_static</li>
-<li><strong>安装插件</strong> </li>
-</ul>
-<pre><code> $ npm install hexo-deployer-git --save
-</code></pre><a id="more"></a>
-<ul>
-<li><strong>修改配置文件</strong>  </li>
-</ul>
-<pre><code>deploy: 
-  type: git 
-  repo: git@github.com:$username/hexo_static.git
-  branch: master
-</code></pre><p>注意替换username为自己的git名字，注意这里如果使用https协议的git，那么每次都会要求输入账户和密码，这里使用git协议，在ssh里保存密钥，这样不用每次都输入密码</p>
-<ul>
-<li><strong>执行命令</strong> </li>
-</ul>
-<pre><code>$ hexo generate
-$ hexo deploy
-</code></pre><p>generate:  生成静态文件，文件生成在pulic目录下<br>deploy: 发布到git的库hexo_static</p>
-<ul>
-<li><p><strong>实现自动化</strong> </p>
-<blockquote>
-<p>这里实现自动化思路：通过git –bare 生成一个裸库bare，裸库bare作为一个远程库remote，在裸库实现一个钩子post-receive，当本地库进行push的时候，自动运行钩子，从而更新静态文件目录A，使用nginx进行转发到静态文件目录A。</p>
-</blockquote>
-</li>
-<li><p><strong>第1步：初始化空仓库</strong></p>
-</li>
-</ul>
-<pre><code>$ git init --bare ~/hexo_bare
-</code></pre><ul>
-<li><strong>第2步：初始化空仓库</strong></li>
-</ul>
-<pre><code>$ vim ~/hexo_bare/hooks/post-receive
-</code></pre><p>编辑:</p>
-<pre><code>echo &quot;start 钩子&quot;
-git --work-tree=/usr/local/nginx/html/myblog --git-dir=/usr/local/hexo_bare checkout -f
-echo &quot;end 钩子&quot;
-</code></pre><p><code>这里注意钩子post-ceive后面不带.sample，同时注意赋予权限</code>：</p>
-<pre><code>chmod +x post-receive
-</code></pre><ul>
-<li><strong>第3步：将空仓库关联到主仓库</strong> </li>
-</ul>
-<pre><code>$ git clone https://github.com/$username/hexo_static.git ~/hexo_static 
-$ cd ~/hexo_static
-$ git remote add live ~/hexo_bare
-</code></pre><p>这里给空库起名live ,可以在本地库hexo_static<br>调用命令： git remote -v 查看到远程库名<br><code>注意：查看下.git/config默认的库名是否是</code></p>
-<pre><code>[branch &quot;master&quot;]
-        remote = origin
-        merge = refs/heads/master
-</code></pre><ul>
-<li><strong>第4步：创建自动化脚本</strong> </li>
-</ul>
-<pre><code>$ vim ~/hexo_blog/hexo_git_deploy.sh
-</code></pre><p>脚本内容：</p>
-<pre><code>#!/bin/bash
-
-hexo clean
-hexo generate 
-hexo deploy
-
-( cd ~/hexo_static ; git pull origin; git push live master)
-</code></pre><p><code>注意：这里一定要git pull origin,不然无法pull成功！</code></p>
-<ul>
-<li><strong>第5步：nginx指定静态目录</strong><br>  在nginx的配置文件中配置即可</li>
-<li><strong>第6步：执行自动化</strong></li>
-</ul>
-<pre><code>$ hexo new test
-$ sh hexo_git_deplay.sh
-</code></pre><p>脚本自动化发布成功！可以看到钩子成功执行！查看nginx的静态目录。发现test文件已经存在，甚至不用重启nginx！<br>至此完成自动化！</p>
+        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=22705286&auto=0&height=66"></iframe><br>喜欢一个人静静的听歌<br>                 ——by ken</p>
 
       
 
@@ -328,7 +231,7 @@ $ sh hexo_git_deplay.sh
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -384,7 +287,7 @@ $ sh hexo_git_deplay.sh
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2016/11/14/hexo自动化/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2017/03/10/jingyesi/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -398,18 +301,9 @@ $ sh hexo_git_deplay.sh
   
 <nav id="article-nav">
   
-    <a href="/2016/11/14/hexo代码高亮和自定义/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo代码高亮和自定义
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/14/hexo配置注意的地方/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo发布文章注意</div>
+    <a href="/2016/11/23/相册js/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PhotoSwipe中文API</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -423,7 +317,7 @@ $ sh hexo_git_deplay.sh
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hexo自动化" data-title="hexo部署和自动化发布" data-url="http://139.129.18.59/2016/11/14/hexo自动化/"></div>
+	<div class="ds-thread" data-thread-key="jingyesi" data-title="静夜思" data-url="http://139.129.18.59/2017/03/10/jingyesi/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
