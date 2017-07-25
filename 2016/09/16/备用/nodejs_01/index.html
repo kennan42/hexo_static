@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://139.129.18.59">
-  <title>tomcat的部署 | Ken of Blog</title>
+  <title>nodejs开发笔记 | Ken of Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="tomcat的部署">
-<meta property="og:url" content="http://139.129.18.59/2016/11/15/tomcat的部署/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="nodejs开发笔记">
+<meta property="og:url" content="http://139.129.18.59/2016/09/16/备用/nodejs_01/index.html">
 <meta property="og:site_name" content="Ken of Blog">
-<meta property="og:description" content="安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：">
-<meta property="og:updated_time" content="2017-03-08T10:50:00.545Z">
+<meta property="og:image" content="http://ken-blog.image.alimmdn.com/test/nodejs.jpeg@200h">
+<meta property="og:updated_time" content="2017-07-25T02:05:37.132Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tomcat的部署">
-<meta name="twitter:description" content="安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：">
+<meta name="twitter:title" content="nodejs开发笔记">
+<meta name="twitter:image" content="http://ken-blog.image.alimmdn.com/test/nodejs.jpeg@200h">
   
     <link rel="alternative" href="/atom.xml" title="Ken of Blog" type="application/atom+xml">
   
@@ -171,70 +170,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-tomcat的部署" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-备用/nodejs_01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      tomcat的部署
+      nodejs开发笔记
     </h1>
   
 
         
-        <a href="/2016/11/15/tomcat的部署/" class="archive-article-date">
-  	<time datetime="2016-11-15T05:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-15</time>
+        <a href="/2016/09/16/备用/nodejs_01/" class="archive-article-date">
+  	<time datetime="2016-09-16T14:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>安装tomcat需要预先安装JDK, JDK安装方法参考如下文档：<br><a id="more"></a><br><a href="http://help.aliyun.com/knowledge_detail/6507861.html?spm=5176.7114037.1996646101.1.FD0keL&amp;pos=1" target="_blank" rel="external">http://help.aliyun.com/knowledge_detail/6507861.html?spm=5176.7114037.1996646101.1.FD0keL&amp;pos=1</a></p>
-<p>本文将tomcat安装到了/usr/local/jdk1.8.0_60目录下，如果安装到了其他目录，请替换掉本文的JDK目录。</p>
-<h5 id="1-下载tomcat："><a href="#1-下载tomcat：" class="headerlink" title="1. 下载tomcat："></a>1. 下载tomcat：</h5><pre><code>#wget http://apache.fayea.com/tomcat/tomcat-7/v7.0.64/bin/apache-tomcat-7.0.64.tar.gz
-</code></pre><p>如果下载404，重新找路径<br>apache.fayea.com/tomcat/tomcat-7/v7.0.69/bin/apache-tomcat-7.0.69.tar.gz</p>
-<h5 id="2-将tomcat放置到-usr-local-目录下"><a href="#2-将tomcat放置到-usr-local-目录下" class="headerlink" title="2. 将tomcat放置到 /usr/local/ 目录下"></a>2. 将tomcat放置到 /usr/local/ 目录下</h5><pre><code>#mv apache-tomcat-7.0.64.tar.gz /usr/local/
-</code></pre><h5 id="3-解压缩："><a href="#3-解压缩：" class="headerlink" title="3. 解压缩："></a>3. 解压缩：</h5><pre><code>tar -xvzf /usr/local/apache-tomcat-7.0.64.tar.gz
-</code></pre><h5 id="4-设置tomcat开机自启动"><a href="#4-设置tomcat开机自启动" class="headerlink" title="4. 设置tomcat开机自启动"></a>4. 设置tomcat开机自启动</h5><p>编辑/usr/local/apache-tomcat-7.0.64.tar.gz/bin/startup.sh</p>
-<pre><code># vi /usr/local/apache-tomcat-7.0.64/bin/startup.sh
-加入如下行：
-#chkconfig: 2345 80 90
-#description:tomcat auto start
-#processname: tomcat
-</code></pre><p>编辑/usr/local/apache-tomcat-7.0.64/bin/catalina.sh</p>
-<pre><code># vi /usr/local/apache-tomcat-7.0.64/bin/catalina.sh
-</code></pre><p>搜索export关键字，加入如下行：</p>
-<pre><code>export CATALINA_BASE=/usr/local/apache-tomcat-7.0.64
-export CATALINA_HOME=/usr/local/apache-tomcat-7.0.64
-export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
-</code></pre><p>将tomcat加入开机自启动</p>
-<pre><code># vi /etc/rc.d/rc.local
-</code></pre><p>加入如下内容：</p>
-<pre><code>export JAVA_HOME=/usr/local/jdk1.8.0_60
-/usr/local/apache-tomcat-7.0.64/bin/startup.sh start
-</code></pre><p>执行</p>
-<pre><code># /usr/local/apache-tomcat-7.0.64/bin/startup.sh 启动tomcat
-</code></pre><p> 打开浏览器测试：<br>tomcat默认监听8080端口，如果要修改成为80端口，按如下步骤修改：</p>
-<pre><code># vi /usr/local/apache-tomcat-7.0.64/conf/server.xml
-</code></pre><p>找到</p>
-<pre><code>&lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;
-               connectionTimeout=&quot;20000&quot;
-               redirectPort=&quot;8443&quot; /&gt;
- &lt;Connector executor=&quot;tomcatThreadPool&quot;
-               port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;
-               connectionTimeout=&quot;20000&quot;
-               redirectPort=&quot;8443&quot; /&gt;
-</code></pre><p>修改为：</p>
-<pre><code>&lt;Connector port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot;
-               connectionTimeout=&quot;20000&quot;
-               redirectPort=&quot;8443&quot; /&gt;
- &lt;Connector executor=&quot;tomcatThreadPool&quot;
-               port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot;
-               connectionTimeout=&quot;20000&quot;
-               redirectPort=&quot;8443&quot; /&gt;
-</code></pre><p>重启tomcat生效</p>
+        <p><img src="http://ken-blog.image.alimmdn.com/test/nodejs.jpeg@200h" alt=""><br><a id="more"></a></p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>我的系统是centos，以centos为例：</p>
+<h5 id="一、-yum方式安装"><a href="#一、-yum方式安装" class="headerlink" title="一、 yum方式安装"></a>一、 yum方式安装</h5><p>要通过 yum 来安装 nodejs 和 npm 需要先给 yum 添加 epel 源：<br><code>添加 epel 源:</code><br>64位：</p>
+<pre><code>rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+</code></pre><p>32位：</p>
+<pre><code>rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+</code></pre><p>导入 key:</p>
+<pre><code>rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+</code></pre><p><code>添加 remi 源:</code></p>
+<pre><code>rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+</code></pre><p>安装完成之后执行：</p>
+<pre><code>##注意：这步也许不需要
+curl --silent --location https://rpm.nodesource.com/setup_5.x | bash -
+</code></pre><pre><code>yum -y install nodejs
+</code></pre><p>安装结束。</p>
+<p><code>注意：如果安装过程提示gcc相关报错,需要先执行</code></p>
+<pre><code>yum install -y gcc-c++ make
+</code></pre><p><code>再执行：</code></p>
+<pre><code>yum -y install nodejs
+</code></pre><h5 id="二、-源码安装"><a href="#二、-源码安装" class="headerlink" title="二、 源码安装"></a>二、 源码安装</h5><h5 id="1-安装下载源码"><a href="#1-安装下载源码" class="headerlink" title="1.安装下载源码"></a>1.安装下载源码</h5><pre><code>##这里源码地址自己替换最新的
+cd /usr/local/src/
+wget http://nodejs.org/dist/v0.10.24/node-v0.10.24.tar.gz
+</code></pre><h5 id="2-解压源码"><a href="#2-解压源码" class="headerlink" title="2.解压源码"></a>2.解压源码</h5><pre><code>tar  zxvf    node-v0.10.24.tar.gz
+</code></pre><h5 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3.编译安装"></a>3.编译安装</h5><pre><code>cd node-v0.10.24
+./configure --prefix=/usr/local/node/0.10.24
+make                                                                                                    
+make install
+</code></pre><blockquote>
+<p>./configure –prefix<br>指定安装路径<br>不指定prefix，则可执行文件默认放在/usr /local/bin，库文件默认放在/usr/local/lib，配置文件默认放在/usr/local/etc。其它的资源文件放在/usr /local/share。你要卸载这个程序，要么在原来的make目录下用一次make uninstall（前提是make文件指定过uninstall）,要么去上述目录里面把相关的文件一个个手工删掉。<br>指定prefix，直接删掉一个文件夹就够了。</p>
+</blockquote>
+<h5 id="4-配置NODE-HOME"><a href="#4-配置NODE-HOME" class="headerlink" title="4.配置NODE_HOME"></a>4.配置NODE_HOME</h5><p>进入profile编辑环境变量</p>
+<pre><code>vim /etc/profile
+</code></pre><p>设置nodejs环境变量，在 <code>export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL</code> 一行的上面添加如下内容:</p>
+<pre><code>#set for nodejs
+export NODE_HOME=/usr/local/node/0.10.24
+export PATH=$NODE_HOME/bin:$PATH
+</code></pre><p>:wq保存并退出，编译/etc/profile 使配置生效</p>
+<pre><code>source /etc/profile
+</code></pre><p>验证是否安装配置成功</p>
+<pre><code>node -v
+</code></pre><p>输出 v0.10.24 表示配置成功。<br>npm模块安装路径：<br><code>/usr/local/node/0.10.24/lib/node_modules/</code></p>
 
       
 
@@ -274,7 +270,11 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
         		</li>
       		
 		</ul>
@@ -330,7 +330,7 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2016/11/15/tomcat的部署/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://139.129.18.59/2016/09/16/备用/nodejs_01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -344,18 +344,18 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
   
 <nav id="article-nav">
   
-    <a href="/2016/11/23/相册js/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/14/markdown使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          PhotoSwipe中文API
+          markdown的使用方法
         
       </div>
     </a>
   
   
-    <a href="/2016/11/15/hexo同步到github/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo同步到github</div>
+    <a href="/2016/09/10/World/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客的Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -369,7 +369,7 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="tomcat的部署" data-title="tomcat的部署" data-url="http://139.129.18.59/2016/11/15/tomcat的部署/"></div>
+	<div class="ds-thread" data-thread-key="备用/nodejs_01" data-title="nodejs开发笔记" data-url="http://139.129.18.59/2016/09/16/备用/nodejs_01/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -479,19 +479,11 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,15 +495,31 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color1">前端css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片旋转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,19 +531,11 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color4">nodejs授权</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片旋转</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">rc4加密</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +547,11 @@ export CATALINA_TMPDIR=/usr/local/apache-tomcat-7.0.64
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nodejs授权</a>
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">rc4加密</a>
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
               </li>
             
             <div class="clearfix"></div>
